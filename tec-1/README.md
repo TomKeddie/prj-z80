@@ -11,9 +11,9 @@
 ## Memory Map
 | Address Range | Purpose | Notes | 
 |:-------------:|:-------------:|:-------------|
-| 0000-07FF     | 2k ROM | Bank select from 27C040 (512k!) |
-| 0800-27FF     | 8k RAM | Use 27C64 (8k) |
-| 1800-1FFF     | 2k ROM | Printer ROM |
-
+| 0000-07FF     | 2k ROM | Bank select from 27C040 |
+| 0800-17FF     | 4k RAM | Use 1/2 2264 (8k) |
+| 1800-1FFF     | 2k ROM | Bank select from 27C040 |
+| 2000-2FFF     | 4k RAM | Use 1/2 2264 (8k) |
 
 ## IO Map
