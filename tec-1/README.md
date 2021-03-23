@@ -7,6 +7,7 @@
 - Z80B can do 6MHz
 - Add clock generation to cpld (2/4/6MHz)
 - Mux keyboard and ft2232 through cpld for keyboard emulation
+- flash A18 is wired to z80 A12 to split the chip in two
 
 ## Memory Map
 | Address Range | Purpose | Notes | 
