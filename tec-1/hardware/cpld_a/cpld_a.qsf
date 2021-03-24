@@ -36,8 +36,8 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY MAX7000AE
-set_global_assignment -name DEVICE "EPM7064AELC44-7"
+set_global_assignment -name FAMILY MAX7000S
+set_global_assignment -name DEVICE "EPM7064SLC44-7"
 set_global_assignment -name TOP_LEVEL_ENTITY cpld_a
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:09:30  MARCH 22, 2021"
@@ -52,3 +52,8 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name VHDL_FILE cpld_a.vhd
 set_global_assignment -name SDC_FILE cpld_a.sdc
+
+set_global_assignment -name MAX7000_DEVICE_IO_STANDARD "TTL"
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_location_assignment PIN_8 -to a_lsb[0]
+set_instance_assignment -name IO_STANDARD TTL -to a_lsb[0]
