@@ -11,27 +11,28 @@
 - shift button (issue 13 page 10)
 - 8x8 display (issue 11 pag 22)
 - lcd interface (issue 15 page 49)
+- use 74ABT574 for octal latch
 
 ## CPLDs
-### Address (97%)
+### Address (100%)
 - memory address decode and bank select flash
 - memory address decode sram x 2
 - cpu clock divide
 - io address decode for keyboard, led display
+- single step
 
-### Data0 (100%)
+### Data (100%)
 - keyboard mux
 - led display column store
 - speaker
 
-### Data1 (TBD)
+### Peripheral (100%)
 - Data bus {8 pins}
 - Address bus {3 pins}
 - Control bus {2 pins}
 - 8x8 led store (x and y) {16 pins}
 - io address decode for 8x8 led {no pins}
 - io address decode for lcd display {1 pin}
-- single step {3 pins}
 - jmon keyboard {1 pin}
 
 ## Memory Map
