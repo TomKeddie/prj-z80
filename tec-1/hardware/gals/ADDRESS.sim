@@ -1,0 +1,93 @@
+%SIGNAL
+PIN  12 =  A0 
+PIN  11 =  A1 
+PIN  10 =  A2 
+PIN   9 =  A3 
+PIN   7 =  A11 
+PIN   6 =  A12 
+PIN   5 =  A13 
+PIN   4 =  A14 
+PIN   3 =  A15 
+PIN  25 =  FLASH_CS_N 
+PIN  16 =  IORQ_N 
+PIN  18 =  KEYBDPOL_CS_N 
+PIN  21 =  KEYDB_CS 
+PIN  17 =  LCD_E 
+PIN  19 =  MATRIXCOL_CS_N 
+PIN  20 =  MATRIXROW_CS_N 
+PIN  13 =  MEMRQ_N 
+PIN  24 =  SEG7COL_CS_N 
+PIN  23 =  SEG7ROW_CS_N 
+PIN  26 =  SRAMA_CS_N 
+PIN  27 =  SRAMB_CS_N 
+%END
+
+%FIELD
+FIELD address = A15,A14,A13,A12,A11,A10,A9,A8,A7,A6,A5,A4,A3,A2,A1,A0
+%END
+
+%EQUATION
+!FLASH_CS_N =>
+    A11 & A12 & !A13 & !A14 & !A15 & !MEMRQ_N
+  # !A11 & !A12 & !A13 & !A14 & !A15 & !MEMRQ_N
+
+!KEYBDPOL_CS_N =>
+    A0 & A1 & !A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+KEYDB_CS =>
+    !A0 & !A1 & !A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+LCD_E =>
+    !A0 & !A1 & A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+!MATRIXCOL_CS_N =>
+    !A0 & A1 & A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+!MATRIXROW_CS_N =>
+    A0 & A1 & A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+!SEG7COL_CS_N =>
+    A0 & !A1 & !A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+!SEG7ROW_CS_N =>
+    !A0 & A1 & !A2 & !A3 & !A12 & !A13 & !A14 & !A15 & !IORQ_N
+
+!SRAMA_CS_N =>
+    !A12 & A13 & !A14 & !A15 & !MEMRQ_N
+  # !A11 & A12 & !A13 & !A14 & !A15 & !MEMRQ_N
+  # A11 & !A12 & !A13 & !A14 & !A15 & !MEMRQ_N
+
+!SRAMB_CS_N =>
+    !A13 & A14 & !A15 & !MEMRQ_N
+
+FLASH_CS_N.oe  =>
+    1 
+
+KEYBDPOL_CS_N.oe  =>
+    1 
+
+KEYDB_CS.oe  =>
+    1 
+
+LCD_E.oe  =>
+    1 
+
+MATRIXCOL_CS_N.oe  =>
+    1 
+
+MATRIXROW_CS_N.oe  =>
+    1 
+
+SEG7COL_CS_N.oe  =>
+    1 
+
+SEG7ROW_CS_N.oe  =>
+    1 
+
+SRAMA_CS_N.oe  =>
+    1 
+
+SRAMB_CS_N.oe  =>
+    1 
+
+%END
