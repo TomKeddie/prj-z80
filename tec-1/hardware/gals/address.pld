@@ -1,9 +1,9 @@
-Name     CPLDA;
+Name     address;
 PartNo   00 ;
-Date     2016-11-30 ;
+Date     2021-03-29 ;
 Revision 01 ;
 Designer Engineer ;
-Company  Dalby Datormuseum ;
+Company  Tom Keddie ;
 Assembly None ;
 Location  ;
 Device   g22v10lcc;
