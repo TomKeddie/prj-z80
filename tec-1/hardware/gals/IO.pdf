@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Tue Mar 30 07:35:31 2021 "}
+  {DBtime "Tue Mar 30 07:51:44 2021 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -33,27 +33,31 @@
  {SYMBOL
   {PIN_DEF
    [Ly "PINCON"]
-   {P A3 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
-   {P A2 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
-   {P A1 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
-   {P A0 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
-   {P IORQ_N {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
-   {P MATRIXCO {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P A3 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P A2 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P A1 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P A0 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P IORQ_N {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P SPARE0_C {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P SPARE1_C {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
    {P LCD_E {Pt "I/O"}{Lq 0}{Ploc 360 20}}
    {P KEYBDPOL {Pt "I/O"}{Lq 0}{Ploc 360 40}}
-   {P MATRIXRO {Pt "I/O"}{Lq 0}{Ploc 360 60}}
-   {P KEYDB_CS {Pt "I/O"}{Lq 0}{Ploc 360 80}}
-   {P SEG7ROW_ {Pt "I/O"}{Lq 0}{Ploc 360 100}}
-   {P SEG7COL_ {Pt "I/O"}{Lq 0}{Ploc 360 120}}
+   {P MATRIXC {Pt "I/O"}{Lq 0}{Ploc 360 60}}
+   {P MATRIXCO {Pt "I/O"}{Lq 0}{Ploc 360 80}}
+   {P MATRIXRO {Pt "I/O"}{Lq 0}{Ploc 360 100}}
+   {P SEG7ROW_ {Pt "I/O"}{Lq 0}{Ploc 360 120}}
+   {P SEG7COL_ {Pt "I/O"}{Lq 0}{Ploc 360 140}}
+   {P KEYDB_CS {Pt "I/O"}{Lq 0}{Ploc 360 160}}
   }
 
   {PKG
    [Ly "REFDES"]
    [Ts 25][Tj "CB"][Tr 0][Tm "N"]
-   {Rdl 230 150}
+   {Rdl 230 190}
 
    [Ly "PINNUM"]
    [Ts 15][Tj "RC"]
+   {Pnl 120 150}
    {Pnl 120 130}
    {Pnl 120 110}
    {Pnl 120 90}
@@ -67,14 +71,17 @@
    {Pnl 340 90}
    {Pnl 340 110}
    {Pnl 340 130}
+   {Pnl 340 150}
+   {Pnl 340 170}
 
-   {Sd A 9 10 11 12 16 19 17 18 20 21 23 24}
+   {Sd A 9 10 11 12 16 25 26 17 18 19 20 21 23 24 27}
   }
 
   {PIC
    [Ly "GATE"]
    [Ts 15][Tj "LC"][Tr 0][Tm "N"]
-   {R 130 140 330 0}
+   {R 130 180 330 0}
+   {L 130 140 100 140}
    {L 130 120 100 120}
    {L 130 100 100 100}
    {L 130 80 100 80}
@@ -87,21 +94,26 @@
    {L 330 80 360 80}
    {L 330 100 360 100}
    {L 330 120 360 120}
+   {L 330 140 360 140}
+   {L 330 160 360 160}
    [Ly "PINNAM"]
    [Tj "LC"]
-   {T "A3" 140 120}
-   {T "A2" 140 100}
-   {T "A1" 140 80}
-   {T "A0" 140 60}
-   {T "IORQ_N" 140 40}
-   {T "MATRIXCO" 140 20}
+   {T "A3" 140 140}
+   {T "A2" 140 120}
+   {T "A1" 140 100}
+   {T "A0" 140 80}
+   {T "IORQ_N" 140 60}
+   {T "SPARE0_C" 140 40}
+   {T "SPARE1_C" 140 20}
    [Tj "RC"]
    {T "LCD_E" 320 20}
    {T "KEYBDPOL" 320 40}
-   {T "MATRIXRO" 320 60}
-   {T "KEYDB_CS" 320 80}
-   {T "SEG7ROW_" 320 100}
-   {T "SEG7COL_" 320 120}
+   {T "MATRIXC" 320 60}
+   {T "MATRIXCO" 320 80}
+   {T "MATRIXRO" 320 100}
+   {T "SEG7ROW_" 320 120}
+   {T "SEG7COL_" 320 140}
+   {T "KEYDB_CS" 320 160}
    [Ly "DEVICE"]
    [Tj "CT"]
    {T "G22V10LCC" 230 -10}
@@ -115,7 +127,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD Z:\HOME\TOM\GIT\TOMKEDDIE\PRJ-Z80\TEC-1\HARDWARE\GALS\IO 230 140}
+    {At PLD Z:\HOME\TOM\GIT\TOMKEDDIE\PRJ-Z80\TEC-1\HARDWARE\GALS\IO 230 180}
    }
   }
  }
@@ -135,19 +147,25 @@
    }
    {N IORQ_N
    }
-   {N MATRIXCO
+   {N SPARE0_C
+   }
+   {N SPARE1_C
    }
    {N LCD_E
    }
    {N KEYBDPOL
    }
-   {N MATRIXRO
+   {N MATRIXC
    }
-   {N KEYDB_CS
+   {N MATRIXCO
+   }
+   {N MATRIXRO
    }
    {N SEG7ROW_
    }
    {N SEG7COL_
+   }
+   {N KEYDB_CS
    }
   }
 

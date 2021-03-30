@@ -5,12 +5,15 @@ PIN  10 =  A2
 PIN   9 =  A3 
 PIN  16 =  IORQ_N 
 PIN  18 =  KEYBDPOL_CS_N 
-PIN  21 =  KEYDB_CS 
+PIN  27 =  KEYDB_CS 
 PIN  17 =  LCD_E 
-PIN  19 =  MATRIXCOL_CS_N 
-PIN  20 =  MATRIXROW_CS_N 
+PIN  20 =  MATRIXCOL_G_CS_N 
+PIN  19 =  MATRIXCOL_R_CS_N 
+PIN  21 =  MATRIXROW_CS_N 
 PIN  24 =  SEG7COL_CS_N 
 PIN  23 =  SEG7ROW_CS_N 
+PIN  25 =  SPARE0_CS 
+PIN  26 =  SPARE1_CS_N 
 %END
 
 %FIELD
@@ -28,18 +31,10 @@ LCD_E =>
     !A0 & !A1 & A2 & !A3 & !IORQ_N
 
 !MATRIXCOL_G_CS_N =>
-    IORQ_N
-  # A3
-  # !A2
-  # !A1
-  # A0
+    !A0 & A1 & A2 & !A3 & !IORQ_N
 
 !MATRIXCOL_R_CS_N =>
-    IORQ_N
-  # A3
-  # !A2
-  # A1
-  # !A0
+    A0 & !A1 & A2 & !A3 & !IORQ_N
 
 !MATRIXROW_CS_N =>
     A0 & A1 & A2 & !A3 & !IORQ_N
@@ -50,6 +45,16 @@ LCD_E =>
 !SEG7ROW_CS_N =>
     !A0 & A1 & !A2 & !A3 & !IORQ_N
 
+!SPARE0_CS_N =>
+    IORQ_N
+  # !A3
+  # A2
+  # A1
+  # A0
+
+SPARE1_CS =>
+    A0 & !A1 & !A2 & A3 & !IORQ_N
+
 KEYBDPOL_CS_N.oe  =>
     1 
 
@@ -57,6 +62,12 @@ KEYDB_CS.oe  =>
     1 
 
 LCD_E.oe  =>
+    1 
+
+MATRIXCOL_G_CS_N.oe  =>
+    1 
+
+MATRIXCOL_R_CS_N.oe  =>
     1 
 
 MATRIXROW_CS_N.oe  =>

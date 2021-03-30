@@ -25,15 +25,15 @@ PIN 16 = IORQ_N;
 
 PIN 17 = LCD_E;
 PIN 18 = KEYBDPOL_CS_N;
-PIN 19 = MATRIXCOL_CS_N;
-PIN 20 = MATRIXROW_CS_N;
-PIN 21 = KEYDB_CS;
+PIN 19 = MATRIXCOL_R_CS_N;
+PIN 20 = MATRIXCOL_G_CS_N;
+PIN 21 = MATRIXROW_CS_N;
 
 PIN 23 = SEG7ROW_CS_N;
 PIN 24 = SEG7COL_CS_N;
-/* PIN 25 = FLASH_CS_N; */
-/* PIN 26 = SRAMA_CS_N; */
-/* PIN 27 = SRAMB_CS_N; */
+PIN 25 = SPARE0_CS;
+PIN 26 = SPARE1_CS_N;
+PIN 27 = KEYDB_CS;
 
 
 FIELD address = [A3..A0];
@@ -46,4 +46,6 @@ LCD_E             = !IORQ_N & address:[4];
 !MATRIXCOL_R_CS_N = !IORQ_N & address:[5];
 !MATRIXCOL_G_CS_N = !IORQ_N & address:[6];
 !MATRIXROW_CS_N   = !IORQ_N & address:[7];
+!SPARE0_CS_N      = !IORQ_N & address:[8];
+SPARE1_CS         = !IORQ_N & address:[9];
 
