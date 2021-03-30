@@ -1,0 +1,6 @@
+../../TEC-1-ROMs/Mon-1/mon1.bin -Binary -OFfset 0x00000
+../../TEC-1-ROMs/Mon-1A/mon1A.bin -Binary -OFfset 0x10000
+../../TEC-1-ROMs/Mon-1B/mon1B.bin -Binary -OFfset 0x20000
+../../TEC-1-ROMs/Mon-2/mon2.bin -Binary -OFfset 0x30000
+../../TEC-1-ROMs/JMon/jmon.bin -Binary -OFfset 0x40000
+../../TEC-1-ROMs/JMon/jmon-util.bin -Binary -OFfset 0x41800
