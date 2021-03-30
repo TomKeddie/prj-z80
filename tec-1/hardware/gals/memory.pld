@@ -1,4 +1,4 @@
-Name     address;
+Name     memory ;
 PartNo   00 ;
 Date     2021-03-29 ;
 Revision 01 ;
@@ -15,26 +15,25 @@ PIN 5  = A13;
 PIN 6  = A12;
 PIN 7  = A11;
 
-PIN 9 = A3;
-PIN 10 = A2;
-PIN 11 = A1;
-PIN 12 = A0;
+/* PIN 9 = A3; */
+/* PIN 10 = A2; */
+/* PIN 11 = A1; */
+/* PIN 12 = A0; */
 PIN 13 = MEMRQ_N;
 
-PIN 16 = IORQ_N;
+/* PIN 16 = IORQ_N; */
 
-PIN 17 = LCD_E;
-PIN 18 = KEYBDPOL_CS_N;
-PIN 19 = MATRIXCOL_CS_N;
-PIN 20 = MATRIXROW_CS_N;
-PIN 21 = KEYDB_CS;
+PIN 17 = FLASH_CS_N;
+PIN 18 = SRAMA_CS_N;
+PIN 19 = SRAMB_CS_N;
+PIN 20 = SRAMC_CS_N;
+PIN 21 = SRAMD_CS_N;
 
-PIN 23 = SEG7ROW_CS_N;
-PIN 24 = SEG7COL_CS_N;
-PIN 25 = FLASH_CS_N;
-PIN 26 = SRAMA_CS_N;
-PIN 27 = SRAMB_CS_N;
-
+PIN 23 = SRAME_CS_N;
+PIN 24 = SRAMF_CS_N;
+PIN 25 = SRAMG_CS_N;
+/* PIN 26 = SRAMA_CS_N; */
+/* PIN 27 = SRAMB_CS_N; */
 
 FIELD address = [A15..A0];
 
@@ -42,13 +41,8 @@ FIELD address = [A15..A0];
 
 !SRAMA_CS_N = !MEMRQ_N & (address:[0800..17FF] # address:[2000..2FFF]);
 !SRAMB_CS_N = !MEMRQ_N & (address:[4000..5FFF]);
-
-KEYDB_CS        = !IORQ_N & address:[0XX0];
-!SEG7COL_CS_N   = !IORQ_N & address:[0XX1];
-!SEG7ROW_CS_N   = !IORQ_N & address:[0XX2];
-!KEYBDPOL_CS_N  = !IORQ_N & address:[0XX3];
-LCD_E           = !IORQ_N & address:[0XX4]; 
-
-!MATRIXCOL_CS_N = !IORQ_N & address:[0XX6];
-!MATRIXROW_CS_N = !IORQ_N & address:[0XX7];
-
+!SRAMC_CS_N = !MEMRQ_N & (address:[6000..7FFF]);
+!SRAMD_CS_N = !MEMRQ_N & (address:[8000..9FFF]);
+!SRAME_CS_N = !MEMRQ_N & (address:[A000..BFFF]);
+!SRAMF_CS_N = !MEMRQ_N & (address:[C000..DFFF]);
+!SRAMG_CS_N = !MEMRQ_N & (address:[E000..FFFF]);
