@@ -1,0 +1,68 @@
+Name     misc;
+PartNo   00 ;
+Date     2021-03-29 ;
+Revision 01 ;
+Designer Engineer ;
+Company  Tom Keddie ;
+Assembly None ;
+Location  ;
+Device   g22v10lcc;
+
+PIN 2  = CLK_IN;
+/* PIN 3  = NMI_N; */
+/* PIN 4  = A14; */
+/* PIN 5  = A13; */
+/* PIN 6  = A12; */
+/* PIN 7  = A11; */
+
+PIN 9 = DIV3;
+PIN 10 = DIV2;
+PIN 11 = DIV1;
+PIN 12 = DIV0;
+/* PIN 13 = MEMRQ_N; */
+
+/* PIN 16 = IORQ_N; */
+
+/* PIN 17 = LCD_E; */
+PIN 18 = CLK_OUT;
+/* PIN 19 = MATRIXCOL_R_CS_N; */
+/* PIN 20 = MATRIXCOL_G_CS_N; */
+/* PIN 21 = MATRIXROW_CS_N; */
+
+/* PIN 23 = SEG7ROW_CS_N; */
+PIN 24 = COUNT0;
+PIN 25 = COUNT1;
+PIN 26 = COUNT2;
+PIN 27 = COUNT3;
+
+FIELD div = [DIV3..DIV0];
+FIELD count   = [COUNT3..COUNT0];
+
+$define S0 'b'0000              /* define counter states */
+$define S1 'b'0001
+$define S2 'b'0010
+$define S3 'b'0011
+$define S4 'b'0100
+$define S5 'b'0101
+$define S6 'b'0110
+$define S7 'b'0111
+$define S8 'b'1000
+$define S9 'b'1001
+$define SA 'b'1010
+$define SB 'b'1011
+$define SC 'b'1100
+
+Sequenced count {
+    present S0 next S1;
+    present S1 if div:[0] next S0;
+               if !div:[0] next S2;
+    present S2 if div:[1] next S0;
+               if !div:[1] next S3;
+    present S3 if div:[2] next S0;
+               if !div:[2] next S4;
+    present S4 if div:[3] next S0;
+               if !div:[3] next S0;
+}
+
+count.ar = 'b'0;
+count.sp = 'b'0;

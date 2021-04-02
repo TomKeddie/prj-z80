@@ -1,0 +1,44 @@
+Name     misc;
+PartNo   00;
+Date     2021-03-29;
+Revision 01;
+Designer Engineer;
+Company  Tom Keddie;
+Assembly None;
+Location ;
+Device   g22v10lcc;
+
+
+ORDER: CLK_IN, %2, DIV3, %4, DIV2, DIV1, DIV0, %8, count; 
+
+
+VECTORS:
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
+C0000 "0" 
