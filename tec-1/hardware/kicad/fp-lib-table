@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name tec-1)(type KiCad)(uri ${KIPRJMOD}/tec-1.pretty)(options "")(descr ""))
+  (lib (name tom-connectors)(type KiCad)(uri /home/tom/git/TomKeddie/tom-kicad/footprints/tom-connectors.pretty)(options "")(descr ""))
+)

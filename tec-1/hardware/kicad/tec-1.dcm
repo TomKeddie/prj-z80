@@ -6,8 +6,22 @@ K EPROM 64KiBit
 F https://downloads.reactivemicro.com/Electronics/ROM/2764%20EPROM.pdf
 $ENDCMP
 #
-$CMP ADDRESS
-D Address decoder GAL22V10
+$CMP 2N3904
+D 0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92
+K NPN Transistor
+F https://www.onsemi.com/pub/Collateral/2N3903-D.PDF
+$ENDCMP
+#
+$CMP 74HCT574
+D 8-bit Register, 3-state outputs
+K TTL REG DFF DFF8 3State
+F http://www.ti.com/lit/gpn/sn74LS574
+$ENDCMP
+#
+$CMP AO3400A
+D 30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23
+K N-Channel MOSFET
+F http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf
 $ENDCMP
 #
 $CMP C
@@ -16,8 +30,20 @@ K capacitor cap
 F ~
 $ENDCMP
 #
+$CMP Conn_01x02
+D Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)
+K connector
+F ~
+$ENDCMP
+#
 $CMP Conn_01x09
 D Generic connector, single row, 01x09, script generated (kicad-library-utils/schlib/autogen/connector/)
+K connector
+F ~
+$ENDCMP
+#
+$CMP Conn_01x16
+D Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)
 K connector
 F ~
 $ENDCMP
@@ -40,13 +66,51 @@ K L ferrite bead inductor filter
 F ~
 $ENDCMP
 #
+$CMP IO
+D Memory Address decoder GAL22V10
+$ENDCMP
+#
 $CMP KEYDB
 D Address decoder GAL22V10
+$ENDCMP
+#
+$CMP LED
+D Light emitting diode
+K LED diode
+F ~
+$ENDCMP
+#
+$CMP LED_SEGMENT_CC_x2
+D 4 digit 7 segment high efficiency red LED, common cathode
+K display LED 7-segment
+F http://www.kingbrightusa.com/images/catalog/SPEC/CA56-12EWA.pdf
+$ENDCMP
+#
+$CMP LED_SEGMENT_CC_x4
+D 4 digit 7 segment high efficiency red LED, common cathode
+K display LED 7-segment
+F http://www.kingbrightusa.com/images/catalog/SPEC/CA56-12EWA.pdf
+$ENDCMP
+#
+$CMP MEMORY
+D Memory Address decoder GAL22V10
+$ENDCMP
+#
+$CMP MM74C923
+D 20-key encoder
+K encoder
+F http://www.ti.com/lit/gpn/snMM74C923
 $ENDCMP
 #
 $CMP R
 D Resistor, small symbol
 K R resistor
+F ~
+$ENDCMP
+#
+$CMP R_POT_Small
+D Potentiometer
+K resistor variable
 F ~
 $ENDCMP
 #
@@ -65,6 +129,18 @@ $ENDCMP
 $CMP SW_DIP_x04
 D 4x DIP Switch, Single Pole Single Throw (SPST) switch, small symbol
 K dip switch
+F ~
+$ENDCMP
+#
+$CMP SW_SPST
+D Single Pole Single Throw (SPST) switch
+K switch lever
+F ~
+$ENDCMP
+#
+$CMP TestPoint
+D test point
+K test point tp
 F ~
 $ENDCMP
 #
