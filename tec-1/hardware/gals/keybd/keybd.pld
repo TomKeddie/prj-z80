@@ -6,11 +6,11 @@ Designer Engineer ;
 Company  Tom Keddie ;
 Assembly None ;
 Location  ;
-Device   g22v10lcc;
+Device   g22v10lcc ;
 
-PIN 2  = CLKIN;
+PIN 2  = FTDI_WR_N;
 PIN 3  = C923_DA;
-PIN 4  = FTDI_WR_N;
+PIN 4 = SHIFTKEY_N;
 PIN 5  = FTDI_D0;
 PIN 6  = FTDI_D1;
 PIN 7  = FTDI_D2;
@@ -21,8 +21,8 @@ PIN 11 = FTDI_D5;
 PIN 12 = FTDI_D6;
 PIN 13 = FTDI_D7;
 
-PIN 15 = SHIFTKEY_N;
 PIN 16 = KEYBD_CS;
+/* 17 */
 PIN 18 = C923_OE_N;
 PIN 19 = NMI_N;
 PIN 20 = D0;
@@ -32,24 +32,23 @@ PIN 23 = D2;
 PIN 24 = D3;
 PIN 25 = D4;
 PIN 26 = D5;
-PIN 27 = CLKOUT;
+/* 27 */
 
 FIELD ftdidata = [FTDI_D4..FTDI_D0];
 FIELD cpudata = [D4..D0];
 
-/* latch the data from the ftdi on rising edge of D5 */
-/* CLKOUT = !FTDI_WR_N # !SHIFTKEY_N; */
-cpudata.D = ftdidata;
 cpudata.AR = 'b'0;
 cpudata.SP = 'b'0;
+cpudata.D  = ftdidata;
 
-D5.D = SHIFTKEY_N & FTDI_D6;
+/* read from internal reg when D6 is low */
+cpudata.OE = KEYBD_CS & !FTDI_D6;
+/* read from 74C923 when D6 is high (default) */
+C923_OE_N  = KEYBD_CS & FTDI_D6;
+
 D5.AR = 'b'0;
 D5.SP = 'b'0;
+D5.D  = !FTDI_D5 & SHIFTKEY_N;
+D5.OE = KEYBD_CS;
 
-/* mux between ftdi data and c923 data based on FTDI WR */
-cpudata.OE = KEYBD_CS & FTDI_WR_N;
-C923_OE    = KEYBD_CS & !FTDI_WR_N;
-
-NMI_N = !(FTDI_D6 # C923_DA);
 
