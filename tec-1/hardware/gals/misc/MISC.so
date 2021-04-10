@@ -1,14 +1,11 @@
 CSIM(WM): CUPL Simulation Program
 Version 5.0a Serial# 
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-CREATED Fri Apr 02 07:53:14 2021
+CREATED Sat Apr 10 16:33:34 2021
 
 LISTING FOR SIMULATION FILE: MISC.si
 
    1: Name     misc;
-                   ^
-[0025sa] Please note: inconsistent header information
-
    2: PartNo   00;
    3: Date     2021-03-29;
    4: Revision 01;
@@ -22,89 +19,33 @@ LISTING FOR SIMULATION FILE: MISC.si
   12: FIELD count = [COUNT3,COUNT2,COUNT1,COUNT0];
   13: FIELD div = [DIV3,DIV2,DIV1,DIV0];
   14:
-  15: ORDER: CLK_IN, %2, DIV3, %4, DIV2, DIV1, DIV0, %8, count; 
+  15: ORDER: RESET, %2, CLK_IN, %4, div, %6, count; 
   16: 
   17: 
 
-================================
-      C                         
-      L                         
-      K  D    DDD               
-      _  I    III               
-      I  V    VVV               
-      N  3    210        count  
-================================
-0001: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0002: C  0    000        LLLL
-0003: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0004: C  0    000        LLLL
-0005: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0006: C  0    000        LLLL
-0007: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0008: C  0    000        LLLL
-0009: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0010: C  0    000        LLLL
-0011: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0012: C  0    000        LLLL
-0013: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0014: C  0    000        LLLL
-0015: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0016: C  0    000        LLLL
-0017: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0018: C  0    000        LLLL
-0019: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0020: C  0    000        LLLL
-0021: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0022: C  0    000        LLLL
-0023: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0024: C  0    000        LLLL
-0025: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0026: C  0    000        LLLL
-0027: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
-0028: C  0    000        LLLL
-0029: C  0    000        LLLH
-                            ^
-[0019sa] user expected (L) for COUNT0
-
+===============================
+         C                     
+      R  L                     
+      E  K                     
+      S  _                     
+      E  I                     
+      T  N    div       count  
+===============================
+0001: 1  C    LLLL      LLLL
+0002: 0  C    LLLL      LLLH
+0003: 0  C    LLLL      LLLL
+0004: 0  C    LLLL      LLLH
+0005: 0  C    LLLL      LLLL
+0006: 0  C    LLLL      LLLH
+0007: 0  C    LLLL      LLLL
+0008: 0  C    LLLL      LLLH
+0009: 0  C    LLLL      LLLL
+0010: 0  C    LLLL      LLLH
+0011: 0  C    LLLL      LLLL
+0012: 0  C    LLLL      LLLH
+0013: 0  C    LLLL      LLLL
+0014: 0  C    LLLL      LLLH
+0015: 0  C    LLLL      LLLL
+0016: 0  C    LLLL      LLLH
+0017: 0  C    LLLL      LLLL
+0018: 0  C    LLLL      LLLH

@@ -9,6 +9,7 @@ PIN  12 =  DIV0
 PIN  11 =  DIV1 
 PIN  10 =  DIV2 
 PIN   9 =  DIV3 
+PIN   7 =  RESET 
 %END
 
 %FIELD
@@ -19,24 +20,22 @@ FIELD div = DIV3,DIV2,DIV1,DIV0
 %EQUATION
 COUNT0.d  =>
     COUNT0 & COUNT1 & COUNT2 & COUNT3
-  # COUNT0 & !COUNT1 & COUNT2 & COUNT3 & !DIV0 & DIV1 & DIV2 & DIV3
 
 COUNT0.ar COUNT1.ar COUNT2.ar COUNT3.ar  =>
-    0 
+    RESET
 
 COUNT0.sp COUNT1.sp COUNT2.sp COUNT3.sp  =>
     0 
 
 COUNT1.d  =>
-    COUNT0 & !COUNT1 & COUNT2 & COUNT3 & !DIV0 & DIV1 & DIV2 & DIV3
-  # !COUNT0 & COUNT1 & COUNT2 & COUNT3 & DIV0 & DIV1 & DIV2 & DIV3
+    0 
 
 COUNT1.ar  =>
     
 COUNT1.sp  =>
     
 COUNT2.d  =>
-    !COUNT0 & !COUNT1 & COUNT2 & COUNT3 & DIV0 & !DIV1 & DIV2 & DIV3
+    0 
 
 COUNT2.ar  =>
     

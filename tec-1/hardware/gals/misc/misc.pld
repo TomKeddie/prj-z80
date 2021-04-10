@@ -13,7 +13,7 @@ PIN 2  = CLK_IN;
 /* PIN 4  = A14; */
 /* PIN 5  = A13; */
 /* PIN 6  = A12; */
-/* PIN 7  = A11; */
+PIN 7  = RESET;
 
 PIN 9 = DIV3;
 PIN 10 = DIV2;
@@ -38,6 +38,8 @@ PIN 27 = COUNT3;
 FIELD div = [DIV3..DIV0];
 FIELD count   = [COUNT3..COUNT0];
 
+count.ar = RESET;
+
 $define S0 'b'0000              /* define counter states */
 $define S1 'b'0001
 $define S2 'b'0010
@@ -51,18 +53,59 @@ $define S9 'b'1001
 $define SA 'b'1010
 $define SB 'b'1011
 $define SC 'b'1100
+$define SD 'b'1101
+$define SE 'b'1110
+$define SF 'b'1111
 
 Sequenced count {
-    present S0 next S1;
-    present S1 if div:[0] next S0;
-               if !div:[0] next S2;
-    present S2 if div:[1] next S0;
-               if !div:[1] next S3;
-    present S3 if div:[2] next S0;
-               if !div:[2] next S4;
-    present S4 if div:[3] next S0;
-               if !div:[3] next S0;
+    present S0 
+          if DIV0 next S1;
+          if !DIV0 next S1;
+    present S1
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S2
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S3
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S4
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S5
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S6
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S7
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S8
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present S9
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present SA
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present SB
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present SC
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present SD
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present SE
+          if DIV0 next S0;
+          if !DIV0 next S0;
+    present SF
+          if DIV0 next S0;
+          if !DIV0 next S0;
 }
 
-count.ar = 'b'0;
 count.sp = 'b'0;
