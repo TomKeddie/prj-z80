@@ -1,0 +1,144 @@
+Name     misc;
+PartNo   00 ;
+Date     2021-03-29 ;
+Revision 01 ;
+Designer Engineer ;
+Company  Tom Keddie ;
+Assembly None ;
+Location  ;
+Device   g22v10lcc;
+
+PIN 2  = CLK_IN;
+/* PIN 3  = NMI_N; */
+/* PIN 4  = A14; */
+/* PIN 5  = A13; */
+/* PIN 6  = A12; */
+PIN 7  = RESET;
+
+PIN 10 = DIV2;
+PIN 11 = DIV1;
+PIN 12 = DIV0;
+/* PIN 13 = MEMRQ_N; */
+
+/* PIN 16 = IORQ_N; */
+
+/* PIN 17 = LCD_E; */
+PIN 18 = CLK_OUT;
+/* PIN 19 = MATRIXCOL_R_CS_N; */
+/* PIN 20 = MATRIXCOL_G_CS_N; */
+/* PIN 21 = MATRIXROW_CS_N; */
+
+PIN 23 = COUNT0;
+PIN 24 = COUNT1;
+PIN 25 = COUNT2;
+PIN 26 = COUNT3;
+PIN 27 = COUNT4;
+
+FIELD div = [DIV2..DIV0];
+FIELD count   = [COUNT4..COUNT0];
+
+COUNT0.ar = RESET;
+COUNT1.ar = RESET;
+COUNT2.ar = RESET;
+COUNT3.ar = RESET;
+COUNT4.ar = RESET;
+
+$define S00 'b'00000 
+$define S01 'b'00001
+$define S02 'b'00010
+$define S03 'b'00011
+$define S04 'b'00100
+$define S05 'b'00101
+$define S06 'b'00110
+$define S07 'b'00111
+$define S08 'b'01000
+$define S09 'b'01001
+$define S0A 'b'01010
+$define S0B 'b'01011
+$define S0C 'b'01100
+$define S0D 'b'01101
+$define S0E 'b'01110
+$define S0F 'b'01111
+$define S10 'b'10000 
+$define S11 'b'10001
+$define S12 'b'10010
+$define S13 'b'10011
+$define S14 'b'10100
+$define S15 'b'10101
+$define S16 'b'10110
+$define S17 'b'10111
+$define S18 'b'11000
+$define S19 'b'11001
+$define S1A 'b'11010
+$define S1B 'b'11011
+$define S1C 'b'11100
+$define S1D 'b'11101
+$define S1E 'b'11110
+$define S1F 'b'11111
+
+Sequenced count {
+    present S00 
+          next S01;
+    present S01
+          next S02;
+    present S02
+          /* 24/3 = 8MHz */
+          if div:['d'0] next S00;
+          default next S03;
+    present S03
+          /* 24/4 = 6MHz */
+          if div:['d'0..1] next S00;
+          default next S04;
+    present S04
+          next S05;
+    present S05
+          /* 24/6 = 4MHz */
+          if div:['d'0..2] next S00;
+          default next S06;
+    present S06
+          next S07;
+    present S07
+          /* 24/8 = 3MHz */
+          if div:['d'0..3] next S00;
+          default next S08;
+    present S08
+          next S09;
+    present S09
+          /* 24/10 = 2.4MHz */
+          if div:['d'0..4] next S00;
+          default next S0A;
+    present S0A
+          next S0B;
+    present S0B
+          /* 24/12 = 2MHz */
+          if div:['d'0..5] next S00;
+          default next S0C;
+    present S0C
+          next S0D;
+    present S0D
+          next S0E;
+    present S0E
+          next S0F;
+    present S0F
+          next S10;
+    present S10
+          next S11;
+    present S11
+          next S12;
+    present S12
+          next S13;
+    present S13
+          next S14;
+    present S14
+          next S15;
+    present S15
+          next S16;
+    present S16
+          next S17;
+    present S17
+          next S18;
+    present S18
+          next S00;
+}
+
+count.sp = 'b'0;

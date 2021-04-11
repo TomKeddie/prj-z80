@@ -1,0 +1,101 @@
+%SIGNAL
+PIN   2 =  CLK_IN 
+PIN  18 =  CLK_OUT 
+PIN  23 =  COUNT0 
+PIN  24 =  COUNT1 
+PIN  25 =  COUNT2 
+PIN  26 =  COUNT3 
+PIN  27 =  COUNT4 
+PIN  12 =  DIV0 
+PIN  11 =  DIV1 
+PIN  10 =  DIV2 
+PIN   7 =  RESET 
+%END
+
+%FIELD
+FIELD count = COUNT4,COUNT3,COUNT2,COUNT1,COUNT0
+FIELD div = DIV2,DIV1,DIV0
+%END
+
+%EQUATION
+!COUNT0.d  =>
+    COUNT0
+  # COUNT3 & COUNT4
+  # COUNT1 & !COUNT2 & !COUNT3 & !COUNT4 & !DIV0 & !DIV1 & !DIV2
+
+COUNT0.ar COUNT1.ar COUNT2.ar COUNT3.ar COUNT4.ar  =>
+    RESET
+
+COUNT0.sp COUNT1.sp COUNT2.sp COUNT3.sp COUNT4.sp  =>
+    0 
+
+!COUNT1.d  =>
+    COUNT0 & COUNT1
+  # !COUNT0 & !COUNT1
+  # COUNT3 & COUNT4
+  # COUNT0 & !COUNT2 & COUNT3 & !DIV2
+  # COUNT0 & !COUNT2 & COUNT3 & !DIV0 & !DIV1
+  # COUNT0 & COUNT2 & !COUNT3 & !COUNT4 & !DIV0 & !DIV2
+  # COUNT0 & COUNT2 & !COUNT3 & !COUNT4 & !DIV1 & !DIV2
+  # !COUNT0 & !COUNT2 & !COUNT3 & !COUNT4 & !DIV0 & !DIV1 & !DIV2
+
+COUNT1.ar  =>
+    
+COUNT1.sp  =>
+    
+!COUNT2.d  =>
+    !COUNT0 & !COUNT2
+  # !COUNT1 & !COUNT2
+  # COUNT3 & COUNT4
+  # COUNT0 & COUNT1 & COUNT2
+  # !COUNT2 & COUNT3 & !DIV1
+  # !COUNT2 & COUNT3 & !DIV2
+  # COUNT0 & !COUNT3 & !COUNT4 & !DIV1 & !DIV2
+  # COUNT0 & !COUNT1 & !COUNT3 & !COUNT4 & !DIV0 & !DIV2
+
+COUNT2.ar  =>
+    
+COUNT2.sp  =>
+    
+!COUNT3.d  =>
+    !COUNT0 & !COUNT3
+  # !COUNT1 & !COUNT3
+  # !COUNT2 & !COUNT3
+  # COUNT3 & COUNT4
+  # COUNT0 & !COUNT2 & !DIV2
+  # !COUNT3 & !COUNT4 & !DIV2
+  # COUNT0 & COUNT1 & COUNT2 & COUNT3
+  # COUNT0 & COUNT1 & !COUNT2 & !DIV1
+  # COUNT0 & !COUNT2 & !DIV0 & !DIV1
+
+COUNT3.ar  =>
+    
+COUNT3.sp  =>
+    
+!COUNT4.d  =>
+    !COUNT0 & COUNT3
+  # !COUNT1 & COUNT3
+  # !COUNT2 & COUNT3
+  # COUNT3 & COUNT4
+  # !COUNT3 & !COUNT4
+
+COUNT4.ar  =>
+    
+COUNT4.sp  =>
+    
+COUNT0.oe  =>
+    1 
+
+COUNT1.oe  =>
+    1 
+
+COUNT2.oe  =>
+    1 
+
+COUNT3.oe  =>
+    1 
+
+COUNT4.oe  =>
+    1 
+
+%END
