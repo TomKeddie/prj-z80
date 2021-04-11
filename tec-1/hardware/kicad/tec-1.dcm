@@ -6,12 +6,6 @@ K EPROM 64KiBit
 F https://downloads.reactivemicro.com/Electronics/ROM/2764%20EPROM.pdf
 $ENDCMP
 #
-$CMP 2N3904
-D 0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92
-K NPN Transistor
-F https://www.onsemi.com/pub/Collateral/2N3903-D.PDF
-$ENDCMP
-#
 $CMP 74HCT574
 D 8-bit Register, 3-state outputs
 K TTL REG DFF DFF8 3State
@@ -24,10 +18,58 @@ K N-Channel MOSFET
 F http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf
 $ENDCMP
 #
+$CMP BC818
+D 0.8A Ic, 25V Vce, NPN Transistor, SOT-23
+K NPN Transistor
+F https://www.onsemi.com/pub/Collateral/BC818-D.pdf
+$ENDCMP
+#
+$CMP BC846
+D 0.1A Ic, 65V Vce, NPN Transistor, SOT-23
+K NPN Transistor
+F https://assets.nexperia.com/documents/data-sheet/BC846_SER.pdf
+$ENDCMP
+#
+$CMP BC847
+D 0.1A Ic, 45V Vce, NPN Transistor, SOT-23
+K NPN Small Signal Transistor
+F http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657
+$ENDCMP
+#
+$CMP BC848
+D 0.1A Ic, 30V Vce, NPN Transistor, SOT-23
+K NPN Small Signal Transistor
+F http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657
+$ENDCMP
+#
+$CMP BC849
+D 0.1A Ic, 30V Vce, NPN Transistor, SOT-23
+K NPN Small Signal Transistor
+F http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657
+$ENDCMP
+#
+$CMP BC850
+D 0.1A Ic, 45V Vce, NPN Transistor, SOT-23
+K NPN Small Signal Transistor
+F http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657
+$ENDCMP
+#
 $CMP C
 D Unpolarized capacitor, small symbol
 K capacitor cap
 F ~
+$ENDCMP
+#
+$CMP CP
+D Polarized capacitor
+K cap capacitor
+F ~
+$ENDCMP
+#
+$CMP CXO_DIP14
+D Crystal Clock Oscillator, DIP14-style metal package
+K Crystal Clock Oscillator
+F http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf
 $ENDCMP
 #
 $CMP Conn_01x02
@@ -66,6 +108,12 @@ K L ferrite bead inductor filter
 F ~
 $ENDCMP
 #
+$CMP GTXO-14T
+D Crystal Clock Oscillator, DIP14-style metal package
+K Crystal Clock Oscillator
+F http://www.golledge.com/pdf/products/tcxos/gtxo14.pdf
+$ENDCMP
+#
 $CMP IO
 D Memory Address decoder GAL22V10
 $ENDCMP
@@ -96,10 +144,32 @@ $CMP MEMORY
 D Memory Address decoder GAL22V10
 $ENDCMP
 #
+$CMP MISC
+D Memory Address decoder GAL22V10
+$ENDCMP
+#
 $CMP MM74C923
 D 20-key encoder
 K encoder
 F http://www.ti.com/lit/gpn/snMM74C923
+$ENDCMP
+#
+$CMP MMBT3904
+D 0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23
+K NPN Transistor
+F https://www.onsemi.com/pub/Collateral/2N3903-D.PDF
+$ENDCMP
+#
+$CMP MMBT5550L
+D 0.6A Ic, 140V Vce, NPN Transistor, SOT-23
+K NPN Transistor
+F www.onsemi.com/pub/Collateral/MMBT5550LT1-D.PDF
+$ENDCMP
+#
+$CMP MMBT5551L
+D 0.6A Ic, 160V Vce, NPN Transistor, SOT-23
+K NPN Transistor
+F www.onsemi.com/pub/Collateral/MMBT5550LT1-D.PDF
 $ENDCMP
 #
 $CMP R
@@ -136,6 +206,12 @@ $CMP SW_SPST
 D Single Pole Single Throw (SPST) switch
 K switch lever
 F ~
+$ENDCMP
+#
+$CMP TFT680
+D Crystal Clock Oscillator, DIP14-style metal package
+K Crystal Clock Oscillator
+F http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf
 $ENDCMP
 #
 $CMP TestPoint
