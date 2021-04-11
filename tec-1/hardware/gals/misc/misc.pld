@@ -35,7 +35,7 @@ PIN 25 = COUNT1;
 PIN 26 = COUNT2;
 PIN 27 = COUNT3;
 
-FIELD div = [DIV3..DIV0];
+FIELD div = [DIV2..DIV0];
 FIELD count   = [COUNT3..COUNT0];
 
 count.ar = RESET;
@@ -59,53 +59,44 @@ $define SF 'b'1111
 
 Sequenced count {
     present S0 
-          if DIV0 next S1;
-          if !DIV0 next S1;
+          next S1;
     present S1
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S2;
     present S2
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0] next S0;
+          if !div:['d'1..7] next S3;
     present S3
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0..1] next S0;
+          if !div:['d'2..7] next S4;
     present S4
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0..2] next S0;
+          if !div:['d'3..7] next S5;
     present S5
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0..3] next S0;
+          if !div:['d'4..7] next S6;
     present S6
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0..4] next S0;
+          if !div:['d'5..7] next S7;
     present S7
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0..5] next S0;
+          if !div:['d'6..7] next S8;
     present S8
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          if div:['d'0..6] next S0;
+          if !div:['d'7] next S9;
     present S9
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
     present SA
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
     present SB
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
     present SC
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
     present SD
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
     present SE
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
     present SF
-          if DIV0 next S0;
-          if !DIV0 next S0;
+          next S0;
 }
 
 count.sp = 'b'0;
