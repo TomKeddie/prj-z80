@@ -35,7 +35,7 @@ PIN 25 = COUNT1;
 PIN 26 = COUNT2;
 PIN 27 = COUNT3;
 
-FIELD div = [DIV2..DIV0];
+FIELD div = [DIV3..DIV0];
 FIELD count   = [COUNT3..COUNT0];
 
 count.ar = RESET;
@@ -61,40 +61,47 @@ Sequenced count {
     present S0 
           next S1;
     present S1
-          next S2;
-    present S2
           if div:['d'0] next S0;
-          if !div:['d'1..7] next S3;
-    present S3
+          if !div:['d'1..15] next S2;
+    present S2
           if div:['d'0..1] next S0;
-          if !div:['d'2..7] next S4;
-    present S4
+          if !div:['d'2..15] next S3;
+    present S3
           if div:['d'0..2] next S0;
-          if !div:['d'3..7] next S5;
-    present S5
+          if !div:['d'3..15] next S4;
+    present S4
           if div:['d'0..3] next S0;
-          if !div:['d'4..7] next S6;
-    present S6
+          if !div:['d'4..15] next S5;
+    present S5
           if div:['d'0..4] next S0;
-          if !div:['d'5..7] next S7;
-    present S7
+          if !div:['d'5..15] next S6;
+    present S6
           if div:['d'0..5] next S0;
-          if !div:['d'6..7] next S8;
-    present S8
+          if !div:['d'6..15] next S7;
+    present S7
           if div:['d'0..6] next S0;
-          if !div:['d'7] next S9;
+          if !div:['d'7..15] next S8;
+    present S8
+          if div:['d'0..7] next S0;
+          if !div:['d'8..15] next S9;
     present S9
-          next S0;
+          if div:['d'0..8] next S0;
+          if !div:['d'9..15] next SA;
     present SA
-          next S0;
+          if div:['d'0..9] next S0;
+          if !div:['d'10..15] next SB;
     present SB
-          next S0;
+          if div:['d'0..10] next S0;
+          if !div:['d'11..15] next SC;
     present SC
-          next S0;
+          if div:['d'0..11] next S0;
+          if !div:['d'12..15] next SD;
     present SD
-          next S0;
+          if div:['d'0..12] next S0;
+          if !div:['d'13..15] next SE;
     present SE
-          next S0;
+          if div:['d'0..13] next S0;
+          if !div:['d'14..15] next SF;
     present SF
           next S0;
 }
