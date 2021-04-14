@@ -26,8 +26,8 @@ F 3 "" H 5750 2200 50  0001 C CNN
 $EndComp
 NoConn ~ 5500 3100
 NoConn ~ 5600 3100
-NoConn ~ 6050 3100
-NoConn ~ 6150 3100
+NoConn ~ 5700 3100
+NoConn ~ 5900 3100
 $Comp
 L power:GND #PWR057
 U 1 1 606B350A
@@ -50,31 +50,21 @@ F 3 "" H 5800 1600 50  0001 C CNN
 	1    5800 1600
 	1    0    0    -1  
 $EndComp
-Text Label 6450 2700 0    50   ~ 0
+Text Label 6450 2800 0    50   ~ 0
 D5
-Text Label 6450 2200 0    50   ~ 0
-D0
 Text Label 6450 2300 0    50   ~ 0
-D1
+D0
 Text Label 6450 2400 0    50   ~ 0
-D2
+D1
 Text Label 6450 2500 0    50   ~ 0
-D3
+D2
 Text Label 6450 2600 0    50   ~ 0
+D3
+Text Label 6450 2700 0    50   ~ 0
 D4
-Wire Wire Line
-	6350 2800 7050 2800
-Wire Wire Line
-	7050 2800 7050 1250
-Wire Wire Line
-	7050 1250 5200 1250
-Wire Wire Line
-	5200 1250 5200 1800
-Wire Wire Line
-	5200 1800 5300 1800
 Text Label 6450 1900 0    50   ~ 0
 KEYBD_CS
-Text Label 6450 2100 0    50   ~ 0
+Text Label 6450 2200 0    50   ~ 0
 ~NMI
 $Comp
 L tec-1:FT232RL U7
@@ -105,10 +95,6 @@ Wire Wire Line
 	4800 2800 5300 2800
 Wire Wire Line
 	4800 3100 4850 3100
-Wire Wire Line
-	4850 3100 4850 2000
-Wire Wire Line
-	4850 2000 5300 2000
 Text Label 4900 2100 0    50   ~ 0
 FTDI_D0
 Text Label 4900 2200 0    50   ~ 0
@@ -560,7 +546,7 @@ F 3 "http://www.ti.com/lit/gpn/snMM74C923" H 5250 6650 50  0001 C CNN
 	1    5250 6650
 	1    0    0    -1  
 $EndComp
-Text Label 6450 2000 0    50   ~ 0
+Text Label 6450 2100 0    50   ~ 0
 ~C923_OE
 Text Label 5850 6850 0    50   ~ 0
 ~C923_OE
@@ -1118,18 +1104,6 @@ Connection ~ 3600 6550
 Wire Wire Line
 	3600 6550 3700 6550
 $Comp
-L power:PWR_FLAG #FLG02
-U 1 1 607DDD0D
-P 2000 750
-F 0 "#FLG02" H 2000 825 50  0001 C CNN
-F 1 "PWR_FLAG" V 2000 878 50  0000 L CNN
-F 2 "" H 2000 750 50  0001 C CNN
-F 3 "~" H 2000 750 50  0001 C CNN
-	1    2000 750 
-	0    1    1    0   
-$EndComp
-Connection ~ 2000 750 
-$Comp
 L power:PWR_FLAG #FLG03
 U 1 1 607DE749
 P 2000 1700
@@ -1156,8 +1130,6 @@ Connection ~ 1400 3200
 Wire Wire Line
 	6350 1900 6450 1900
 Wire Wire Line
-	6350 2000 6450 2000
-Wire Wire Line
 	6350 2100 6450 2100
 Wire Wire Line
 	6350 2200 6450 2200
@@ -1171,6 +1143,8 @@ Wire Wire Line
 	6350 2600 6450 2600
 Wire Wire Line
 	6350 2700 6450 2700
+Wire Wire Line
+	6350 2800 6450 2800
 $Comp
 L tec-1:SW_SPST SW2
 U 1 1 6083A9A5
@@ -1220,10 +1194,6 @@ Wire Wire Line
 Text Label 1100 5300 0    50   ~ 0
 ~SHIFT_KEY
 Connection ~ 1000 5300
-Text Label 6450 1800 0    50   ~ 0
-~SHIFT_KEY
-Wire Wire Line
-	6350 1800 6450 1800
 Wire Wire Line
 	10400 3450 10300 3450
 Wire Wire Line
@@ -1247,28 +1217,6 @@ D3
 Text Label 10300 3850 2    50   ~ 0
 D4
 $Comp
-L tec-1:TestPoint TP24
-U 1 1 615B6A1A
-P 5250 3200
-F 0 "TP24" H 5192 3272 50  0000 R CNN
-F 1 "TestPoint" H 5192 3317 50  0001 R CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 5450 3200 50  0001 C CNN
-F 3 "~" H 5450 3200 50  0001 C CNN
-	1    5250 3200
-	-1   0    0    1   
-$EndComp
-$Comp
-L tec-1:TestPoint TP23
-U 1 1 615B740B
-P 5150 3350
-F 0 "TP23" H 5092 3422 50  0000 R CNN
-F 1 "TestPoint" H 5092 3467 50  0001 R CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 5350 3350 50  0001 C CNN
-F 3 "~" H 5350 3350 50  0001 C CNN
-	1    5150 3350
-	-1   0    0    1   
-$EndComp
-$Comp
 L tec-1:TestPoint TP22
 U 1 1 615B77A2
 P 5050 3500
@@ -1279,31 +1227,10 @@ F 3 "~" H 5250 3500 50  0001 C CNN
 	1    5050 3500
 	-1   0    0    1   
 $EndComp
-$Comp
-L tec-1:TestPoint TP21
-U 1 1 615B7B90
-P 4950 3650
-F 0 "TP21" H 4892 3722 50  0000 R CNN
-F 1 "TestPoint" H 4892 3767 50  0001 R CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 5150 3650 50  0001 C CNN
-F 3 "~" H 5150 3650 50  0001 C CNN
-	1    4950 3650
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	4800 3200 5250 3200
-Wire Wire Line
-	5150 3350 5150 3300
-Wire Wire Line
-	5150 3300 4800 3300
 Wire Wire Line
 	4800 3400 5050 3400
 Wire Wire Line
 	5050 3400 5050 3500
-Wire Wire Line
-	4800 3500 4950 3500
-Wire Wire Line
-	4950 3500 4950 3650
 Wire Wire Line
 	1200 6900 1800 6900
 Wire Wire Line
@@ -1317,4 +1244,113 @@ Text Label 2000 2000 0    50   ~ 0
 CC2
 Text Label 1100 3250 2    50   ~ 0
 SHIELD
+$Comp
+L tec-1:C C22
+U 1 1 60749591
+P 4350 1300
+F 0 "C22" H 4442 1346 50  0000 L CNN
+F 1 "0.1uF/10V" H 4442 1255 50  0000 L CNN
+F 2 "tec-1:C_0805_2012Metric" H 4350 1300 50  0001 C CNN
+F 3 "~" H 4350 1300 50  0001 C CNN
+	1    4350 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0132
+U 1 1 6074997B
+P 4350 1400
+F 0 "#PWR0132" H 4350 1150 50  0001 C CNN
+F 1 "GND" H 4355 1227 50  0000 C CNN
+F 2 "" H 4350 1400 50  0001 C CNN
+F 3 "" H 4350 1400 50  0001 C CNN
+	1    4350 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0133
+U 1 1 60749985
+P 4350 1200
+F 0 "#PWR0133" H 4350 1050 50  0001 C CNN
+F 1 "+5V" H 4365 1373 50  0000 C CNN
+F 2 "" H 4350 1200 50  0001 C CNN
+F 3 "" H 4350 1200 50  0001 C CNN
+	1    4350 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 3200 5250 3200
+$Comp
+L tec-1:TestPoint TP24
+U 1 1 615B6A1A
+P 5250 3200
+F 0 "TP24" H 5192 3272 50  0000 R CNN
+F 1 "TestPoint" H 5192 3317 50  0001 R CNN
+F 2 "tec-1:TestPoint_Pad_D2.0mm" H 5450 3200 50  0001 C CNN
+F 3 "~" H 5450 3200 50  0001 C CNN
+	1    5250 3200
+	-1   0    0    1   
+$EndComp
+NoConn ~ 4800 3300
+NoConn ~ 4800 3500
+$Comp
+L power:+5V #PWR?
+U 1 1 60986F67
+P 2450 750
+AR Path="/608A5BD6/60986F67" Ref="#PWR?"  Part="1" 
+AR Path="/60617BAD/60986F67" Ref="#PWR0134"  Part="1" 
+F 0 "#PWR0134" H 2450 600 50  0001 C CNN
+F 1 "+5V" H 2465 923 50  0000 C CNN
+F 2 "" H 2450 750 50  0001 C CNN
+F 3 "" H 2450 750 50  0001 C CNN
+	1    2450 750 
+	-1   0    0    -1  
+$EndComp
+$Comp
+L tec-1:LED D?
+U 1 1 60986F6D
+P 2450 900
+AR Path="/608A5BD6/60986F6D" Ref="D?"  Part="1" 
+AR Path="/60617BAD/60986F6D" Ref="D3"  Part="1" 
+F 0 "D3" V 2489 782 50  0000 R CNN
+F 1 "LED" V 2398 782 50  0000 R CNN
+F 2 "tec-1:LED_0805_2012Metric" H 2450 900 50  0001 C CNN
+F 3 "~" H 2450 900 50  0001 C CNN
+	1    2450 900 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L tec-1:R R?
+U 1 1 60986F73
+P 2450 1250
+AR Path="/608A5BD6/60986F73" Ref="R?"  Part="1" 
+AR Path="/60617BAD/60986F73" Ref="R48"  Part="1" 
+F 0 "R48" V 2450 1200 50  0000 L CNN
+F 1 "1k" H 2509 1205 50  0001 L CNN
+F 2 "tec-1:R_0805_2012Metric" H 2450 1250 50  0001 C CNN
+F 3 "~" H 2450 1250 50  0001 C CNN
+	1    2450 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 1050 2450 1150
+$Comp
+L power:GND #PWR0135
+U 1 1 6098FDA7
+P 2450 1350
+F 0 "#PWR0135" H 2450 1100 50  0001 C CNN
+F 1 "GND" H 2455 1177 50  0000 C CNN
+F 2 "" H 2450 1350 50  0001 C CNN
+F 3 "" H 2450 1350 50  0001 C CNN
+	1    2450 1350
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6350 2900
+Wire Wire Line
+	4850 1800 5300 1800
+Wire Wire Line
+	4850 1800 4850 3100
+Text Label 5300 2000 2    50   ~ 0
+~SHIFT_KEY
+NoConn ~ 6350 2000
+NoConn ~ 6350 1800
 $EndSCHEMATC

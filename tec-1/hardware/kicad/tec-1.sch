@@ -61,8 +61,6 @@ Text Label 4800 3550 0    50   ~ 0
 D6
 Text Label 4800 3650 0    50   ~ 0
 D7
-Text Label 3400 2950 2    50   ~ 0
-~RD
 Text Label 3400 3050 2    50   ~ 0
 ~WR
 Text Label 3400 3150 2    50   ~ 0
@@ -1022,51 +1020,6 @@ F 3 "~" H 1000 7050 50  0001 C CNN
 	1    800  7050
 	1    0    0    -1  
 $EndComp
-$Comp
-L tec-1:TestPoint TP7
-U 1 1 60BE6F95
-P 900 6950
-F 0 "TP7" H 700 7100 50  0000 L CNN
-F 1 "TestPoint" H 958 6977 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1100 6950 50  0001 C CNN
-F 3 "~" H 1100 6950 50  0001 C CNN
-	1    900  6950
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP9
-U 1 1 60BEA0AC
-P 1000 6850
-F 0 "TP9" H 800 7000 50  0000 L CNN
-F 1 "TestPoint" H 1058 6877 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1200 6850 50  0001 C CNN
-F 3 "~" H 1200 6850 50  0001 C CNN
-	1    1000 6850
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP11
-U 1 1 60BEA26C
-P 1100 6750
-F 0 "TP11" H 900 6900 50  0000 L CNN
-F 1 "TestPoint" H 1158 6777 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1300 6750 50  0001 C CNN
-F 3 "~" H 1300 6750 50  0001 C CNN
-	1    1100 6750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1300 6800 1100 6800
-Wire Wire Line
-	1100 6800 1100 6750
-Wire Wire Line
-	1000 6850 1000 6900
-Wire Wire Line
-	1000 6900 1300 6900
-Wire Wire Line
-	1300 7000 900  7000
-Wire Wire Line
-	900  7000 900  6950
 Wire Wire Line
 	1300 7100 800  7100
 Wire Wire Line
@@ -1087,21 +1040,6 @@ Wire Wire Line
 Wire Wire Line
 	700  7300 1300 7300
 $Comp
-L tec-1:TestPoint TP12
-U 1 1 60BF99B1
-P 1200 6100
-F 0 "TP12" H 1000 6250 50  0000 L CNN
-F 1 "TestPoint" H 1258 6127 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1400 6100 50  0001 C CNN
-F 3 "~" H 1400 6100 50  0001 C CNN
-	1    1200 6100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1200 6100 1200 6200
-Wire Wire Line
-	1200 6200 1300 6200
-$Comp
 L tec-1:TestPoint TP13
 U 1 1 60C03715
 P 2900 6400
@@ -1110,39 +1048,6 @@ F 1 "TestPoint" H 2958 6427 50  0001 L CNN
 F 2 "tec-1:TestPoint_Pad_D2.0mm" H 3100 6400 50  0001 C CNN
 F 3 "~" H 3100 6400 50  0001 C CNN
 	1    2900 6400
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP14
-U 1 1 60C068C6
-P 3000 6500
-F 0 "TP14" H 3050 6650 50  0000 L CNN
-F 1 "TestPoint" H 3058 6527 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 3200 6500 50  0001 C CNN
-F 3 "~" H 3200 6500 50  0001 C CNN
-	1    3000 6500
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP15
-U 1 1 60C06CE2
-P 3100 6600
-F 0 "TP15" H 3150 6750 50  0000 L CNN
-F 1 "TestPoint" H 3158 6627 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 3300 6600 50  0001 C CNN
-F 3 "~" H 3300 6600 50  0001 C CNN
-	1    3100 6600
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP17
-U 1 1 60C07071
-P 3200 6700
-F 0 "TP17" H 3250 6850 50  0000 L CNN
-F 1 "TestPoint" H 3258 6727 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 3400 6700 50  0001 C CNN
-F 3 "~" H 3400 6700 50  0001 C CNN
-	1    3200 6700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1156,56 +1061,14 @@ F 3 "~" H 3500 6800 50  0001 C CNN
 	1    3300 6800
 	1    0    0    -1  
 $EndComp
-$Comp
-L tec-1:TestPoint TP19
-U 1 1 60C07975
-P 3400 6900
-F 0 "TP19" H 3450 7050 50  0000 L CNN
-F 1 "TestPoint" H 3458 6927 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 3600 6900 50  0001 C CNN
-F 3 "~" H 3600 6900 50  0001 C CNN
-	1    3400 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP20
-U 1 1 60C07D6A
-P 3500 7000
-F 0 "TP20" H 3550 7150 50  0000 L CNN
-F 1 "TestPoint" H 3558 7027 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 3700 7000 50  0001 C CNN
-F 3 "~" H 3700 7000 50  0001 C CNN
-	1    3500 7000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2350 6500 2900 6500
 Wire Wire Line
 	2900 6500 2900 6400
 Wire Wire Line
-	2350 6600 3000 6600
-Wire Wire Line
-	3000 6600 3000 6500
-Wire Wire Line
-	2350 6700 3100 6700
-Wire Wire Line
-	3100 6700 3100 6600
-Wire Wire Line
-	2350 6800 3200 6800
-Wire Wire Line
-	3200 6800 3200 6700
-Wire Wire Line
 	2350 6900 3300 6900
 Wire Wire Line
 	3300 6900 3300 6800
-Wire Wire Line
-	2350 7000 3400 7000
-Wire Wire Line
-	3400 7000 3400 6900
-Wire Wire Line
-	2350 7100 3500 7100
-Wire Wire Line
-	3500 7100 3500 7000
 $Comp
 L tec-1:IO U1
 U 1 1 60C18391
@@ -1333,51 +1196,6 @@ F 3 "~" H 900 4550 50  0001 C CNN
 	1    700  4550
 	1    0    0    -1  
 $EndComp
-$Comp
-L tec-1:TestPoint TP4
-U 1 1 60D0AC7B
-P 800 4450
-F 0 "TP4" H 600 4600 50  0000 L CNN
-F 1 "TestPoint" H 858 4477 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1000 4450 50  0001 C CNN
-F 3 "~" H 1000 4450 50  0001 C CNN
-	1    800  4450
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP6
-U 1 1 60D0AC85
-P 900 4350
-F 0 "TP6" H 700 4500 50  0000 L CNN
-F 1 "TestPoint" H 958 4377 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1100 4350 50  0001 C CNN
-F 3 "~" H 1100 4350 50  0001 C CNN
-	1    900  4350
-	1    0    0    -1  
-$EndComp
-$Comp
-L tec-1:TestPoint TP8
-U 1 1 60D0AC8F
-P 1000 4250
-F 0 "TP8" H 800 4400 50  0000 L CNN
-F 1 "TestPoint" H 1058 4277 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1200 4250 50  0001 C CNN
-F 3 "~" H 1200 4250 50  0001 C CNN
-	1    1000 4250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1250 4300 1000 4300
-Wire Wire Line
-	1000 4300 1000 4250
-Wire Wire Line
-	900  4350 900  4400
-Wire Wire Line
-	900  4400 1250 4400
-Wire Wire Line
-	1250 4500 800  4500
-Wire Wire Line
-	800  4500 800  4450
 Wire Wire Line
 	1250 4600 700  4600
 Wire Wire Line
@@ -1397,21 +1215,6 @@ Wire Wire Line
 	1250 5100 700  5100
 Wire Wire Line
 	700  5000 700  5100
-$Comp
-L tec-1:TestPoint TP10
-U 1 1 60D327B7
-P 1100 4150
-F 0 "TP10" H 850 4300 50  0000 L CNN
-F 1 "TestPoint" H 1158 4177 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1300 4150 50  0001 C CNN
-F 3 "~" H 1300 4150 50  0001 C CNN
-	1    1100 4150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1250 4200 1100 4200
-Wire Wire Line
-	1100 4200 1100 4150
 Text Label 1250 5000 2    50   ~ 0
 A0
 Text Label 1250 4900 2    50   ~ 0
@@ -1571,24 +1374,8 @@ Wire Wire Line
 	6300 5950 6200 5950
 Wire Wire Line
 	6200 5950 6200 6050
-$Comp
-L tec-1:TestPoint TP26
-U 1 1 62206534
-P 1200 4050
-F 0 "TP26" H 1000 4200 50  0000 L CNN
-F 1 "TestPoint" H 1258 4077 50  0001 L CNN
-F 2 "tec-1:TestPoint_Pad_D2.0mm" H 1400 4050 50  0001 C CNN
-F 3 "~" H 1400 4050 50  0001 C CNN
-	1    1200 4050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1200 4050 1200 4100
-Wire Wire Line
-	1200 4100 1250 4100
 NoConn ~ 2400 5000
 NoConn ~ 2400 4800
-NoConn ~ 2400 4200
 Text Label 10150 5050 2    50   ~ 0
 ~NMI
 Wire Wire Line
@@ -2088,4 +1875,29 @@ F 3 "" H 2100 3350 50  0001 C CNN
 	1    2100 3350
 	1    0    0    -1  
 $EndComp
+NoConn ~ 1250 4100
+NoConn ~ 1250 4200
+NoConn ~ 1250 4300
+NoConn ~ 1250 4400
+NoConn ~ 1250 4500
+NoConn ~ 1300 6900
+NoConn ~ 1300 7000
+NoConn ~ 1300 6800
+NoConn ~ 2350 6600
+NoConn ~ 2350 6700
+NoConn ~ 2350 6800
+NoConn ~ 2350 7100
+Text Label 3400 2950 2    50   ~ 0
+~RD
+NoConn ~ 3400 2950
+Wire Wire Line
+	2400 4200 2500 4200
+Text Label 2500 4200 0    50   ~ 0
+KEYBD_CS
+Text Label 1300 6200 2    50   ~ 0
+~M1
+Wire Wire Line
+	2350 7000 2450 7000
+Text Label 2450 7000 0    50   ~ 0
+~INT
 $EndSCHEMATC

@@ -1,0 +1,137 @@
+** Drc report for /home/tom/git/TomKeddie/prj-z80/tec-1/hardware/kicad/tec-1.kicad_pcb **
+** Created on 2021-04-14 07:03:43 **
+
+** Found 2 DRC errors **
+ErrType(19): Pad too close to pad
+    @(25.310 mm, 159.110 mm): Pad of J1 on All copper layers
+    @(26.650 mm, 158.950 mm): Pad B12 of J1 on F.Cu and others
+ErrType(19): Pad too close to pad
+    @(25.310 mm, 164.890 mm): Pad of J1 on All copper layers
+    @(26.650 mm, 164.550 mm): Pad A9 of J1 on F.Cu and others
+
+** Found 41 unconnected pads **
+ErrType(2): Unconnected items
+    @(79.000 mm, 125.000 mm): Track 0.500 mm [/keybd/~SHIFT_KEY] on F.Cu, length: 1.250 mm
+    @(79.000 mm, 112.588 mm): Track 0.500 mm [/keybd/~SHIFT_KEY] on B.Cu, length: 1.087 mm
+ErrType(2): Unconnected items
+    @(116.000 mm, 114.500 mm): Pad 2 of SW7 on F.Cu and others
+    @(121.000 mm, 124.500 mm): Track 0.500 mm [/keybd/X4] on F.Cu, length: 7.071 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 124.500 mm): Track 0.500 mm [/keybd/X4] on F.Cu, length: 1.000 mm
+    @(148.500 mm, 114.500 mm): Pad 2 of SW15 on F.Cu and others
+ErrType(2): Unconnected items
+    @(105.000 mm, 124.500 mm): Pad 2 of SW3 on F.Cu and others
+    @(90.000 mm, 124.500 mm): Pad 2 of SW3 on F.Cu and others
+ErrType(2): Unconnected items
+    @(137.000 mm, 124.500 mm): Pad 2 of SW11 on F.Cu and others
+    @(122.000 mm, 124.500 mm): Track 0.500 mm [/keybd/X4] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(169.500 mm, 124.500 mm): Pad 2 of SW19 on F.Cu and others
+    @(154.500 mm, 124.500 mm): Track 0.500 mm [/keybd/X4] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(95.500 mm, 156.500 mm): Track 0.500 mm [/keybd/Y5] on F.Cu, length: 7.071 mm
+    @(101.000 mm, 151.500 mm): Track 0.500 mm [/keybd/Y5] on F.Cu, length: 8.485 mm
+ErrType(2): Unconnected items
+    @(105.000 mm, 119.500 mm): Pad 1 of SW3 on F.Cu and others
+    @(95.000 mm, 124.500 mm): Track 0.500 mm [/keybd/Y5] on F.Cu, length: 7.071 mm
+ErrType(2): Unconnected items
+    @(95.000 mm, 130.500 mm): Track 0.500 mm [/keybd/Y5] on F.Cu, length: 6.000 mm
+    @(85.000 mm, 141.340 mm): Track 0.500 mm [/keybd/Y5] on F.Cu, length: 4.525 mm
+ErrType(2): Unconnected items
+    @(95.500 mm, 177.500 mm): Pad 1 of SW6 on F.Cu and others
+    @(95.500 mm, 162.500 mm): Track 0.500 mm [/keybd/Y5] on F.Cu, length: 6.000 mm
+ErrType(2): Unconnected items
+    @(105.000 mm, 140.500 mm): Track 0.500 mm [/keybd/X3] on F.Cu, length: 7.071 mm
+    @(98.800 mm, 132.450 mm): Track 0.500 mm [/keybd/X3] on F.Cu, length: 1.697 mm
+ErrType(2): Unconnected items
+    @(132.000 mm, 130.500 mm): Pad 2 of SW12 on F.Cu and others
+    @(137.000 mm, 140.500 mm): Track 0.500 mm [/keybd/X3] on F.Cu, length: 1.500 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 140.500 mm): Pad 2 of SW16 on F.Cu and others
+    @(159.500 mm, 130.500 mm): Pad 2 of SW20 on F.Cu and others
+ErrType(2): Unconnected items
+    @(121.000 mm, 140.500 mm): Pad 2 of SW8 on F.Cu and others
+    @(106.000 mm, 140.500 mm): Track 0.500 mm [/keybd/X3] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 140.500 mm): Pad 2 of SW16 on F.Cu and others
+    @(138.500 mm, 140.500 mm): Track 0.500 mm [/keybd/X3] on F.Cu, length: 1.500 mm
+ErrType(2): Unconnected items
+    @(116.500 mm, 146.500 mm): Pad 2 of SW9 on F.Cu and others
+    @(121.500 mm, 156.500 mm): Track 0.500 mm [/keybd/X2] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 156.500 mm): Track 0.500 mm [/keybd/X2] on F.Cu, length: 7.071 mm
+    @(148.500 mm, 146.500 mm): Pad 2 of SW17 on F.Cu and others
+ErrType(2): Unconnected items
+    @(105.500 mm, 156.500 mm): Pad 2 of SW5 on F.Cu and others
+    @(90.500 mm, 156.500 mm): Pad 2 of SW5 on F.Cu and others
+ErrType(2): Unconnected items
+    @(137.500 mm, 156.500 mm): Pad 2 of SW13 on F.Cu and others
+    @(122.500 mm, 156.500 mm): Pad 2 of SW13 on F.Cu and others
+ErrType(2): Unconnected items
+    @(169.500 mm, 156.500 mm): Pad 2 of SW21 on F.Cu and others
+    @(154.500 mm, 156.500 mm): Track 0.500 mm [/keybd/X2] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(98.550 mm, 164.450 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 2.758 mm
+    @(105.500 mm, 172.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 7.071 mm
+ErrType(2): Unconnected items
+    @(132.500 mm, 162.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 14.142 mm
+    @(137.500 mm, 172.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 172.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 7.071 mm
+    @(159.500 mm, 162.500 mm): Pad 2 of SW22 on F.Cu and others
+ErrType(2): Unconnected items
+    @(121.500 mm, 172.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 1.000 mm
+    @(106.500 mm, 172.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 1.000 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 172.500 mm): Track 0.500 mm [/keybd/X1] on F.Cu, length: 7.071 mm
+    @(138.500 mm, 172.500 mm): Pad 2 of SW18 on F.Cu and others
+ErrType(2): Unconnected items
+    @(117.000 mm, 135.500 mm): Track 0.500 mm [/keybd/Y1] on F.Cu, length: 8.485 mm
+    @(111.500 mm, 141.000 mm): Track 0.500 mm [/keybd/Y1] on F.Cu, length: 7.778 mm
+ErrType(2): Unconnected items
+    @(106.500 mm, 167.500 mm): Pad 1 of SW10 on F.Cu and others
+    @(111.500 mm, 161.500 mm): Pad 1 of SW9 on F.Cu and others
+ErrType(2): Unconnected items
+    @(111.000 mm, 129.500 mm): Pad 1 of SW7 on F.Cu and others
+    @(111.000 mm, 114.500 mm): Pad 1 of SW7 on F.Cu and others
+ErrType(2): Unconnected items
+    @(111.500 mm, 161.500 mm): Pad 1 of SW9 on F.Cu and others
+    @(111.500 mm, 146.500 mm): Track 0.500 mm [/keybd/Y1] on F.Cu, length: 5.500 mm
+ErrType(2): Unconnected items
+    @(133.000 mm, 151.500 mm): Track 0.500 mm [/keybd/Y2] on F.Cu, length: 8.485 mm
+    @(127.500 mm, 154.500 mm): Track 0.500 mm [/keybd/Y2] on F.Cu, length: 8.000 mm
+ErrType(2): Unconnected items
+    @(127.000 mm, 124.500 mm): Track 0.500 mm [/keybd/Y2] on F.Cu, length: 6.000 mm
+    @(137.000 mm, 119.500 mm): Pad 1 of SW11 on F.Cu and others
+ErrType(2): Unconnected items
+    @(127.000 mm, 145.500 mm): Track 0.500 mm [/keybd/Y2] on F.Cu, length: 8.485 mm
+    @(127.000 mm, 130.500 mm): Pad 1 of SW12 on F.Cu and others
+ErrType(2): Unconnected items
+    @(127.500 mm, 177.500 mm): Pad 1 of SW14 on F.Cu and others
+    @(127.500 mm, 162.500 mm): Pad 1 of SW14 on F.Cu and others
+ErrType(2): Unconnected items
+    @(138.500 mm, 135.500 mm): Pad 1 of SW16 on F.Cu and others
+    @(143.500 mm, 129.500 mm): Track 0.500 mm [/keybd/Y3] on F.Cu, length: 3.593 mm
+ErrType(2): Unconnected items
+    @(153.500 mm, 167.500 mm): Pad 1 of SW18 on F.Cu and others
+    @(143.500 mm, 161.500 mm): Pad 1 of SW17 on F.Cu and others
+ErrType(2): Unconnected items
+    @(140.000 mm, 118.000 mm): Track 0.500 mm [/keybd/Y3] on F.Cu, length: 22.540 mm
+    @(143.500 mm, 129.500 mm): Track 0.500 mm [/keybd/Y3] on F.Cu, length: 3.593 mm
+ErrType(2): Unconnected items
+    @(143.500 mm, 161.500 mm): Pad 1 of SW17 on F.Cu and others
+    @(143.500 mm, 146.500 mm): Track 0.500 mm [/keybd/Y3] on F.Cu, length: 6.000 mm
+ErrType(2): Unconnected items
+    @(164.500 mm, 145.500 mm): Track 0.500 mm [/keybd/Y4] on F.Cu, length: 8.485 mm
+    @(169.500 mm, 151.500 mm): Track 0.500 mm [/keybd/Y4] on F.Cu, length: 7.071 mm
+ErrType(2): Unconnected items
+    @(164.500 mm, 124.500 mm): Track 0.500 mm [/keybd/Y4] on F.Cu, length: 7.071 mm
+    @(154.500 mm, 119.500 mm): Pad 1 of SW19 on F.Cu and others
+ErrType(2): Unconnected items
+    @(164.500 mm, 145.500 mm): Track 0.500 mm [/keybd/Y4] on F.Cu, length: 8.485 mm
+    @(164.500 mm, 130.500 mm): Track 0.500 mm [/keybd/Y4] on F.Cu, length: 6.000 mm
+ErrType(2): Unconnected items
+    @(164.500 mm, 177.500 mm): Pad 1 of SW22 on F.Cu and others
+    @(164.500 mm, 162.500 mm): Pad 1 of SW22 on F.Cu and others
+
+** End of Report **
