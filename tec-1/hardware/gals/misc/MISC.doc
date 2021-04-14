@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10lcc  Library DLIB-h-40-2
-Created         Sun Apr 11 08:44:55 2021
+Created         Tue Apr 13 17:11:51 2021
 Name            misc
 Partno          00 
 Revision        01 
@@ -25,7 +25,7 @@ Location
   # COUNT1 & !COUNT2 & !COUNT3 & !COUNT4 & !DIV0 & !DIV1 & !DIV2
 
 COUNT0.ar  =>
-    RESET
+    !RESET
 
 COUNT0.sp  =>
     0 
@@ -41,7 +41,7 @@ COUNT0.sp  =>
   # !COUNT0 & !COUNT2 & !COUNT3 & !COUNT4 & !DIV0 & !DIV1 & !DIV2
 
 COUNT1.ar  =>
-    RESET
+    !RESET
 
 COUNT1.sp  =>
     0 
@@ -57,7 +57,7 @@ COUNT1.sp  =>
   # COUNT0 & !COUNT1 & !COUNT3 & !COUNT4 & !DIV0 & !DIV2
 
 COUNT2.ar  =>
-    RESET
+    !RESET
 
 COUNT2.sp  =>
     0 
@@ -74,7 +74,7 @@ COUNT2.sp  =>
   # COUNT0 & !COUNT2 & !DIV0 & !DIV1
 
 COUNT3.ar  =>
-    RESET
+    !RESET
 
 COUNT3.sp  =>
     0 
@@ -87,7 +87,7 @@ COUNT3.sp  =>
   # !COUNT3 & !COUNT4
 
 COUNT4.ar  =>
-    RESET
+    !RESET
 
 COUNT4.sp  =>
     0 
@@ -123,7 +123,6 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
 --- --------            ---     ---     ----    ------  ------  -----   
 
     CLK_IN                      2        V        -       -       -     
-    CLK_OUT                     18       V        -       -       -     
     COUNT0                      23       V        -       -       -     
     COUNT0              d       23       X        3       16      2     
     COUNT0              ar      23       X        1       1       1     
@@ -144,9 +143,9 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     COUNT4              d       27       X        5       8       2     
     COUNT4              ar      27       X        1       1       1     
     COUNT4              sp      27       X        1       1       1     
-    DIV0                        12       V        -       -       -     
-    DIV1                        11       V        -       -       -     
-    DIV2                        10       V        -       -       -     
+    DIV0                        11       V        -       -       -     
+    DIV1                        10       V        -       -       -     
+    DIV2                        9        V        -       -       -     
     RESET                       7        V        -       -       -     
     count                       0        F        -       -       -     
     div                         0        F        -       -       -     

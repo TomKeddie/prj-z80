@@ -1,11 +1,11 @@
-{COMPONENT Z:\HOME\TOM\GIT\TOMKEDDIE\PRJ-Z80\TEC-1\HARDWARE\GALS\MEMORY.SYM
+{COMPONENT F:\MEMORY\MEMORY.SYM
 
  {ENVIRONMENT
   {PDIFvrev 3.00}
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Tue Mar 30 07:58:14 2021 "}
+  {DBtime "Tue Apr 13 17:20:42 2021 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -33,6 +33,7 @@
  {SYMBOL
   {PIN_DEF
    [Ly "PINCON"]
+   {P M1 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
    {P A15 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
    {P A14 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
    {P A13 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
@@ -47,14 +48,17 @@
    {P SRAME_CS {Pt "I/O"}{Lq 0}{Ploc 350 120}}
    {P SRAMF_CS {Pt "I/O"}{Lq 0}{Ploc 350 140}}
    {P SRAMG_CS {Pt "I/O"}{Lq 0}{Ploc 350 160}}
+   {P INT_N {Pt "OUTPUT"}{Lq 0}{Ploc 350 180}}
   }
 
   {PKG
    [Ly "REFDES"]
    [Ts 25][Tj "CB"][Tr 0][Tm "N"]
-   {Rdl 225 190}
+   {Rdl 225 210}
 
    [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 170}
    [Ts 15][Tj "RC"]
    {Pnl 120 130}
    {Pnl 120 110}
@@ -71,14 +75,17 @@
    {Pnl 330 130}
    {Pnl 330 150}
    {Pnl 330 170}
+   {Pnl 330 190}
 
-   {Sd A 3 4 5 6 7 13 17 18 19 20 21 23 24 25}
+   {Sd A 2 3 4 5 6 7 13 17 18 19 20 21 23 24 25 26}
   }
 
   {PIC
    [Ly "GATE"]
    [Ts 15][Tj "LC"][Tr 0][Tm "N"]
-   {R 130 180 320 0}
+   {R 130 200 320 0}
+   {L 130 160 100 160}
+   {L 130 170 140 160 130 150}
    {L 130 120 100 120}
    {L 130 100 100 100}
    {L 130 80 100 80}
@@ -93,8 +100,10 @@
    {L 320 120 350 120}
    {L 320 140 350 140}
    {L 320 160 350 160}
+   {L 320 180 350 180}
    [Ly "PINNAM"]
    [Tj "LC"]
+   {T "M1" 140 160}
    {T "A15" 140 120}
    {T "A14" 140 100}
    {T "A13" 140 80}
@@ -110,6 +119,7 @@
    {T "SRAME_CS" 310 120}
    {T "SRAMF_CS" 310 140}
    {T "SRAMG_CS" 310 160}
+   {T "INT_N" 310 180}
    [Ly "DEVICE"]
    [Tj "CT"]
    {T "G22V10LCC" 225 -10}
@@ -123,7 +133,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD Z:\HOME\TOM\GIT\TOMKEDDIE\PRJ-Z80\TEC-1\HARDWARE\GALS\MEMORY 225 180}
+    {At PLD F:\MEMORY\MEMORY 225 200}
    }
   }
  }
@@ -133,6 +143,8 @@
   }
 
   {NET_DEF
+   {N M1
+   }
    {N A15
    }
    {N A14
@@ -160,6 +172,8 @@
    {N SRAMF_CS
    }
    {N SRAMG_CS
+   }
+   {N INT_N
    }
   }
 

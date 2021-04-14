@@ -15,15 +15,16 @@ PIN 2  = CLK_IN;
 /* PIN 6  = A12; */
 PIN 7  = RESET;
 
-PIN 10 = DIV2;
-PIN 11 = DIV1;
-PIN 12 = DIV0;
+PIN 9 = DIV2;
+PIN 10 = DIV1;
+PIN 11 = DIV0;
+/* PIN 12 */
 /* PIN 13 = MEMRQ_N; */
 
 /* PIN 16 = IORQ_N; */
 
 /* PIN 17 = LCD_E; */
-PIN 18 = CLK_OUT;
+/* PIN 18 = CLK_OUT; */
 /* PIN 19 = MATRIXCOL_R_CS_N; */
 /* PIN 20 = MATRIXCOL_G_CS_N; */
 /* PIN 21 = MATRIXROW_CS_N; */
@@ -37,11 +38,11 @@ PIN 27 = COUNT4;
 FIELD div = [DIV2..DIV0];
 FIELD count   = [COUNT4..COUNT0];
 
-COUNT0.ar = RESET;
-COUNT1.ar = RESET;
-COUNT2.ar = RESET;
-COUNT3.ar = RESET;
-COUNT4.ar = RESET;
+COUNT0.ar = !RESET;
+COUNT1.ar = !RESET;
+COUNT2.ar = !RESET;
+COUNT3.ar = !RESET;
+COUNT4.ar = !RESET;
 
 $define S00 'b'00000 
 $define S01 'b'00001

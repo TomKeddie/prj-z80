@@ -8,8 +8,8 @@ Assembly None ;
 Location  ;
 Device   g22v10lcc;
 
-PIN 2  = CLK_IN;
-PIN 3  = NMI_N;
+/* 2 */
+/* 3 */
 /* PIN 4  = A14; */
 /* PIN 5  = A13; */
 /* PIN 6  = A12; */
@@ -19,21 +19,21 @@ PIN 9 = A3;
 PIN 10 = A2;
 PIN 11 = A1;
 PIN 12 = A0;
-/* PIN 13 = MEMRQ_N; */
+/* 13 */
 
 PIN 16 = IORQ_N;
 
 PIN 17 = LCD_E;
-PIN 18 = CLK_OUT;
+PIN 18 = KEYBD_CS;
 PIN 19 = MATRIXCOL_R_CS_N;
 PIN 20 = MATRIXCOL_G_CS_N;
 PIN 21 = MATRIXROW_CS_N;
 
 PIN 23 = SEG7ROW_CS_N;
 PIN 24 = SEG7COL_CS_N;
-PIN 25 = D6;
-PIN 26 = SPARE0_CS_N;
-PIN 27 = KEYDB_CS;
+/* 25 */
+/* 26 */
+/* 27 */
 
 
 FIELD address = [A3..A0];
@@ -46,9 +46,4 @@ LCD_E             = !IORQ_N & address:[4];
 !MATRIXCOL_R_CS_N = !IORQ_N & address:[5];
 !MATRIXCOL_G_CS_N = !IORQ_N & address:[6];
 !MATRIXROW_CS_N   = !IORQ_N & address:[7];
-!SPARE0_CS_N      = !IORQ_N & address:[8];
 
-D6.D = NMI_N;
-D6.AR = 'b'0;
-D6.SP = 'b'0;
-D6.OE = !IORQ_N & address:[3];

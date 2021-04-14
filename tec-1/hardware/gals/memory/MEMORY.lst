@@ -1,0 +1,74 @@
+LISTING FOR LOGIC DESCRIPTION FILE: MEMORY.pld                       Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Tue Apr 13 17:20:42 2021
+
+  1:Name     memory ;
+  2:PartNo   00 ;
+  3:Date     2021-03-29 ;
+  4:Revision 01 ;
+  5:Designer Engineer ;
+  6:Company  Tom Keddie ;
+  7:Assembly None ;
+  8:Location  ;
+  9:Device   g22v10lcc;
+ 10:
+ 11:PIN 2  = M1;
+ 12:PIN 3  = A15;
+ 13:PIN 4  = A14;
+ 14:PIN 5  = A13;
+ 15:PIN 6  = A12;
+ 16:PIN 7  = A11;
+ 17:
+ 18:/* PIN 9 = A3; */
+ 19:/* PIN 10 = A2; */
+ 20:/* PIN 11 = A1; */
+ 21:/* PIN 12 = A0; */
+ 22:PIN 13 = MEMRQ_N;
+ 23:
+ 24:/* PIN 16 = IORQ_N; */
+ 25:
+ 26:PIN 17 = FLASH_CS_N;
+ 27:PIN 18 = SRAMA_CS_N;
+ 28:PIN 19 = SRAMB_CS_N;
+ 29:PIN 20 = SRAMC_CS_N;
+ 30:PIN 21 = SRAMD_CS_N;
+ 31:
+ 32:PIN 23 = SRAME_CS_N;
+ 33:PIN 24 = SRAMF_CS_N;
+ 34:PIN 25 = SRAMG_CS_N;
+ 35:PIN 26 = INT_N;
+ 36:/* PIN 27 = SRAMB_CS_N; */
+ 37:
+ 38:FIELD address = [A15..A0];
+ 39:
+ 40:!FLASH_CS_N = !MEMRQ_N & (address:[0000..07FF] # address:[1800..1FFF]);
+ 41:
+ 42:!SRAMA_CS_N = !MEMRQ_N & (address:[0800..17FF] # address:[2000..2FFF]);
+ 43:!SRAMB_CS_N = !MEMRQ_N & (address:[4000..5FFF]);
+ 44:!SRAMC_CS_N = !MEMRQ_N & (address:[6000..7FFF]);
+ 45:!SRAMD_CS_N = !MEMRQ_N & (address:[8000..9FFF]);
+ 46:!SRAME_CS_N = !MEMRQ_N & (address:[A000..BFFF]);
+ 47:!SRAMF_CS_N = !MEMRQ_N & (address:[C000..DFFF]);
+ 48:!SRAMG_CS_N = !MEMRQ_N & (address:[E000..FFFF]);
+ 49:
+ 50:INT_N.D = FLASH_CS_N;
+ 51:INT_N.SP = 'b'0;
+ 52:INT_N.AR = 'b'0;
+ 53:
+
+LISTING FOR LOGIC DESCRIPTION FILE: MEMORY.pld                       Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Tue Apr 13 17:20:42 2021
+
+ 54:
+
+
+
+Jedec Fuse Checksum       (fe08)
+Jedec Transmit Checksum   (9a78)

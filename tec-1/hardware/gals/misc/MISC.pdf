@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Sun Apr 11 08:44:55 2021 "}
+  {DBtime "Tue Apr 13 17:11:51 2021 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -33,76 +33,72 @@
  {SYMBOL
   {PIN_DEF
    [Ly "PINCON"]
-   {P CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
-   {P RESET {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
-   {P DIV2 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
-   {P DIV1 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
-   {P DIV0 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
-   {P CLK_OUT {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
-   {P COUNT0 {Pt "OUTPUT"}{Lq 0}{Ploc 330 20}}
-   {P COUNT1 {Pt "OUTPUT"}{Lq 0}{Ploc 330 40}}
-   {P COUNT2 {Pt "OUTPUT"}{Lq 0}{Ploc 330 60}}
-   {P COUNT3 {Pt "OUTPUT"}{Lq 0}{Ploc 330 80}}
-   {P COUNT4 {Pt "OUTPUT"}{Lq 0}{Ploc 330 100}}
+   {P CLK_IN {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P RESET {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P DIV2 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P DIV1 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P DIV0 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P COUNT0 {Pt "OUTPUT"}{Lq 0}{Ploc 320 20}}
+   {P COUNT1 {Pt "OUTPUT"}{Lq 0}{Ploc 320 40}}
+   {P COUNT2 {Pt "OUTPUT"}{Lq 0}{Ploc 320 60}}
+   {P COUNT3 {Pt "OUTPUT"}{Lq 0}{Ploc 320 80}}
+   {P COUNT4 {Pt "OUTPUT"}{Lq 0}{Ploc 320 100}}
   }
 
   {PKG
    [Ly "REFDES"]
    [Ts 25][Tj "CB"][Tr 0][Tm "N"]
-   {Rdl 215 170}
+   {Rdl 210 150}
 
    [Ly "PINNUM"]
    [Ts 15][Tj "RC"]
-   {Pnl 120 150}
+   {Pnl 120 130}
    [Ts 15][Tj "RC"]
-   {Pnl 120 110}
    {Pnl 120 90}
    {Pnl 120 70}
    {Pnl 120 50}
    {Pnl 120 30}
    [Ts 15][Tj "LC"]
-   {Pnl 310 30}
-   {Pnl 310 50}
-   {Pnl 310 70}
-   {Pnl 310 90}
-   {Pnl 310 110}
+   {Pnl 300 30}
+   {Pnl 300 50}
+   {Pnl 300 70}
+   {Pnl 300 90}
+   {Pnl 300 110}
 
-   {Sd A 2 7 10 11 12 18 23 24 25 26 27}
+   {Sd A 2 7 9 10 11 23 24 25 26 27}
   }
 
   {PIC
    [Ly "GATE"]
    [Ts 15][Tj "LC"][Tr 0][Tm "N"]
-   {R 130 160 300 0}
-   {L 130 140 100 140}
-   {L 130 150 140 140 130 130}
-   {L 130 100 100 100}
+   {R 130 140 290 0}
+   {L 130 120 100 120}
+   {L 130 130 140 120 130 110}
    {L 130 80 100 80}
    {L 130 60 100 60}
    {L 130 40 100 40}
    {L 130 20 100 20}
-   {L 300 20 330 20}
-   {L 300 40 330 40}
-   {L 300 60 330 60}
-   {L 300 80 330 80}
-   {L 300 100 330 100}
+   {L 290 20 320 20}
+   {L 290 40 320 40}
+   {L 290 60 320 60}
+   {L 290 80 320 80}
+   {L 290 100 320 100}
    [Ly "PINNAM"]
    [Tj "LC"]
-   {T "CLK_IN" 140 140}
-   {T "RESET" 140 100}
-   {T "DIV2" 140 80}
-   {T "DIV1" 140 60}
-   {T "DIV0" 140 40}
-   {T "CLK_OUT" 140 20}
+   {T "CLK_IN" 140 120}
+   {T "RESET" 140 80}
+   {T "DIV2" 140 60}
+   {T "DIV1" 140 40}
+   {T "DIV0" 140 20}
    [Tj "RC"]
-   {T "COUNT0" 290 20}
-   {T "COUNT1" 290 40}
-   {T "COUNT2" 290 60}
-   {T "COUNT3" 290 80}
-   {T "COUNT4" 290 100}
+   {T "COUNT0" 280 20}
+   {T "COUNT1" 280 40}
+   {T "COUNT2" 280 60}
+   {T "COUNT3" 280 80}
+   {T "COUNT4" 280 100}
    [Ly "DEVICE"]
    [Tj "CT"]
-   {T "G22V10LCC" 215 -10}
+   {T "G22V10LCC" 210 -10}
   }
 
   {ATR
@@ -113,7 +109,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD F:\MISC\MISC 215 160}
+    {At PLD F:\MISC\MISC 210 140}
    }
   }
  }
@@ -132,8 +128,6 @@
    {N DIV1
    }
    {N DIV0
-   }
-   {N CLK_OUT
    }
    {N COUNT0
    }

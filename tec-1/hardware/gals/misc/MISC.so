@@ -1,7 +1,7 @@
 CSIM(WM): CUPL Simulation Program
 Version 5.0a Serial# 60008009
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-CREATED Sun Apr 11 08:44:55 2021
+CREATED Tue Apr 13 17:11:51 2021
 
 LISTING FOR SIMULATION FILE: MISC.si
 
@@ -31,37 +31,15 @@ LISTING FOR SIMULATION FILE: MISC.si
       E  I                     
       T  N    div      count   
 ===============================
-0001: 1  C    LLL      HHHHH
-0002: 0  C    LLL      LLLLL
-0003: 0  C    LLL      LLLLH
-0004: 0  C    LLL      LLLHL
-0005: 0  C    LLL      LLLXX
-                          ^^
-[0019sa] user expected (L) for COUNT1
-[0019sa] user expected (L) for COUNT0
-
-0006: 0  C    LLL      LLXXX
-                         ^^^
-[0019sa] user expected (L) for COUNT2
-[0019sa] user expected (L) for COUNT1
-[0019sa] user expected (H) for COUNT0
-
-0007: 0  C    LLL      LXXXX
-                        ^^^^
-[0019sa] user expected (L) for COUNT3
-[0019sa] user expected (L) for COUNT2
-[0019sa] user expected (L) for COUNT1
-[0019sa] user expected (L) for COUNT0
-
-0008: 0  C    LLL      XXXXX
+0001: 1  C    LLL      LLLLL
                        ^^^^^
-[0019sa] user expected (L) for COUNT4
-[0019sa] user expected (L) for COUNT3
-[0019sa] user expected (L) for COUNT2
-[0019sa] user expected (L) for COUNT1
+[0019sa] user expected (H) for COUNT4
+[0019sa] user expected (H) for COUNT3
+[0019sa] user expected (H) for COUNT2
+[0019sa] user expected (H) for COUNT1
 [0019sa] user expected (H) for COUNT0
 
-0009: 0  C    LLL      XXXXX
+0002: 0  C    LLL      HHHHH
                        ^^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
@@ -69,15 +47,21 @@ LISTING FOR SIMULATION FILE: MISC.si
 [0019sa] user expected (L) for COUNT1
 [0019sa] user expected (L) for COUNT0
 
-0010: 0  C    LLL      XXXXX
-                       ^^^^^
+0003: 0  C    LLL      HHHHH
+                       ^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
 [0019sa] user expected (L) for COUNT2
 [0019sa] user expected (L) for COUNT1
-[0019sa] user expected (H) for COUNT0
 
-0011: 0  C    LLL      XXXXX
+0004: 0  C    LLL      HHHHH
+                       ^^^ ^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT0
+
+0005: 0  C    LLL      HHHHH
                        ^^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
@@ -85,15 +69,14 @@ LISTING FOR SIMULATION FILE: MISC.si
 [0019sa] user expected (L) for COUNT1
 [0019sa] user expected (L) for COUNT0
 
-0012: 0  C    LLL      XXXXX
-                       ^^^^^
+0006: 0  C    LLL      HHHHH
+                       ^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
 [0019sa] user expected (L) for COUNT2
 [0019sa] user expected (L) for COUNT1
-[0019sa] user expected (H) for COUNT0
 
-0013: 0  C    LLL      XXXXX
+0007: 0  C    LLL      HHHHH
                        ^^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
@@ -101,15 +84,14 @@ LISTING FOR SIMULATION FILE: MISC.si
 [0019sa] user expected (L) for COUNT1
 [0019sa] user expected (L) for COUNT0
 
-0014: 0  C    LLL      XXXXX
-                       ^^^^^
+0008: 0  C    LLL      HHHHH
+                       ^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
 [0019sa] user expected (L) for COUNT2
 [0019sa] user expected (L) for COUNT1
-[0019sa] user expected (H) for COUNT0
 
-0015: 0  C    LLL      XXXXX
+0009: 0  C    LLL      HHHHH
                        ^^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
@@ -117,15 +99,14 @@ LISTING FOR SIMULATION FILE: MISC.si
 [0019sa] user expected (L) for COUNT1
 [0019sa] user expected (L) for COUNT0
 
-0016: 0  C    LLL      XXXXX
-                       ^^^^^
+0010: 0  C    LLL      HHHHH
+                       ^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
 [0019sa] user expected (L) for COUNT2
 [0019sa] user expected (L) for COUNT1
-[0019sa] user expected (H) for COUNT0
 
-0017: 0  C    LLL      XXXXX
+0011: 0  C    LLL      HHHHH
                        ^^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
@@ -133,11 +114,55 @@ LISTING FOR SIMULATION FILE: MISC.si
 [0019sa] user expected (L) for COUNT1
 [0019sa] user expected (L) for COUNT0
 
-0018: 0  C    LLL      XXXXX
+0012: 0  C    LLL      HHHHH
+                       ^^^^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT1
+
+0013: 0  C    LLL      HHHHH
                        ^^^^^
 [0019sa] user expected (L) for COUNT4
 [0019sa] user expected (L) for COUNT3
 [0019sa] user expected (L) for COUNT2
 [0019sa] user expected (L) for COUNT1
-[0019sa] user expected (H) for COUNT0
+[0019sa] user expected (L) for COUNT0
+
+0014: 0  C    LLL      HHHHH
+                       ^^^^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT1
+
+0015: 0  C    LLL      HHHHH
+                       ^^^^^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT1
+[0019sa] user expected (L) for COUNT0
+
+0016: 0  C    LLL      HHHHH
+                       ^^^^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT1
+
+0017: 0  C    LLL      HHHHH
+                       ^^^^^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT1
+[0019sa] user expected (L) for COUNT0
+
+0018: 0  C    LLL      HHHHH
+                       ^^^^
+[0019sa] user expected (L) for COUNT4
+[0019sa] user expected (L) for COUNT3
+[0019sa] user expected (L) for COUNT2
+[0019sa] user expected (L) for COUNT1
 

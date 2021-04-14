@@ -8,7 +8,7 @@ Assembly None ;
 Location  ;
 Device   g22v10lcc;
 
-/* PIN 2  = CLK_16; */
+PIN 2  = M1;
 PIN 3  = A15;
 PIN 4  = A14;
 PIN 5  = A13;
@@ -32,7 +32,7 @@ PIN 21 = SRAMD_CS_N;
 PIN 23 = SRAME_CS_N;
 PIN 24 = SRAMF_CS_N;
 PIN 25 = SRAMG_CS_N;
-/* PIN 26 = SRAMA_CS_N; */
+PIN 26 = INT_N;
 /* PIN 27 = SRAMB_CS_N; */
 
 FIELD address = [A15..A0];
@@ -46,3 +46,7 @@ FIELD address = [A15..A0];
 !SRAME_CS_N = !MEMRQ_N & (address:[A000..BFFF]);
 !SRAMF_CS_N = !MEMRQ_N & (address:[C000..DFFF]);
 !SRAMG_CS_N = !MEMRQ_N & (address:[E000..FFFF]);
+
+INT_N.D = FLASH_CS_N;
+INT_N.SP = 'b'0;
+INT_N.AR = 'b'0;
