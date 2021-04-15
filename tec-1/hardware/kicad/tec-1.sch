@@ -1900,4 +1900,46 @@ Wire Wire Line
 	2350 7000 2450 7000
 Text Label 2450 7000 0    50   ~ 0
 ~INT
+$Comp
+L tec-1:Conn_01x09 J7
+U 1 1 608ADCE2
+P 8000 5550
+F 0 "J7" H 8080 5592 50  0000 L CNN
+F 1 "CTRL" H 8080 5501 50  0000 L CNN
+F 2 "tec-1:PinHeader_1x09_P2.54mm_Vertical" H 8000 5550 50  0001 C CNN
+F 3 "~" H 8000 5550 50  0001 C CNN
+	1    8000 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0136
+U 1 1 608B02EE
+P 7700 6050
+F 0 "#PWR0136" H 7700 5800 50  0001 C CNN
+F 1 "GND" H 7705 5877 50  0000 C CNN
+F 2 "" H 7700 6050 50  0001 C CNN
+F 3 "" H 7700 6050 50  0001 C CNN
+	1    7700 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 5950 7700 5950
+Wire Wire Line
+	7700 5950 7700 6050
+Text Label 7800 5650 2    50   ~ 0
+~WR
+Text Label 7800 5750 2    50   ~ 0
+~MREQ
+Text Label 7800 5850 2    50   ~ 0
+~IOREQ
+Text Label 7800 5550 2    50   ~ 0
+~RD
+Text Label 7800 5450 2    50   ~ 0
+~M1
+Text Label 7800 5250 2    50   ~ 0
+~NMI
+Text Label 7800 5350 2    50   ~ 0
+~INT
+Text Label 7800 5150 2    50   ~ 0
+~RESET
 $EndSCHEMATC
