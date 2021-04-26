@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 3
 Title ""
-Date ""
-Rev ""
+Date "2021-04-15"
+Rev "Apr2021"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -1762,6 +1762,7 @@ F 0 "X1" H 1550 3350 50  0000 L CNN
 F 1 "24MHz" H 1950 3350 50  0000 L CNN
 F 2 "tec-1:Oscillator_DIP-14_LargePads" H 2250 2750 50  0001 C CNN
 F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 1700 3100 50  0001 C CNN
+F 4 "DNP" H 1800 3100 50  0001 C CNN "LCSC"
 	1    1800 3100
 	1    0    0    -1  
 $EndComp

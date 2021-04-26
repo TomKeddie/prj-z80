@@ -1,0 +1,13 @@
+ERC report (Thu Apr 15 07:13:08 2021, Encoding UTF8 )
+
+***** Sheet /
+ErrType(7): A pin with a "no connection" flag is connected
+    @(86.36 mm, 74.93 mm): More than 1 pin connected to an UnConnect symbol.
+
+***** Sheet /displays/
+
+***** Sheet /keybd/
+ErrType(3): Pin connected to other pins, but not driven by any pin
+    @(25.40 mm, 129.54 mm): Pin 1 (Power input) of component #PWR037 is not driven (Net 16).
+
+ ** ERC messages: 2  Errors 0  Warnings 2

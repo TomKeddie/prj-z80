@@ -1,0 +1,188 @@
+kibot:
+  version: 1
+
+preflight:
+  run_erc: true
+  update_xml: true
+  run_drc: false
+  check_zone_fills: true
+  ignore_unconnected: true
+
+global:
+  output: '%f-%r.%x'
+  kiauto_time_out_scale: 2.0
+
+variants:
+  - name: rotated
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: rotated
+    pre_transform: _rot_footprint
+
+outputs:
+  - name: 'gerbers'
+    type: gerber
+    dir: gerber
+    options:
+      create_gerber_job_file: false
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      gerber_precision: 4.6
+      output: '%f-%i%v.%x'
+      tent_vias: true
+      use_aux_axis_as_origin: true
+      use_gerber_x2_attributes: false
+    layers:
+        - copper
+        - technical
+        - 'Edge.Cuts'
+
+  - name: 'drills'
+    type: excellon
+    dir: gerber
+    options:
+      pth_and_npth_single_file: true
+      use_aux_axis_as_origin: true
+      metric_units: true
+
+  - name: 'bom'
+    type: bom
+    dir: bom
+    options:
+      output: '%f-jlc-%r.%x'
+      ref_separator: ','
+      columns:
+        - field: Value
+          name: Comment
+        - field: References
+          name: Designator
+        - Footprint
+        - field: 'LCSC'
+          name: 'LCSC Part #'
+      csv:
+        hide_pcb_info: true
+        hide_stats_info: true
+        quote_all: true
+
+  - name: 'JLCPCB_position'
+    comment: "Pick and place file, JLCPCB style"
+    type: position
+    options:
+      variant: rotated
+      output: '%f_cpl_jlc.%x'
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: true
+      only_smd: true
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+  - name: 'sch_svg'
+    type: svg_sch_print
+    dir: doc
+    options:
+      output: '%f-sch-%r.%x'
+
+  - name: 'sch_pdf'
+    type: pdf_sch_print
+    dir: doc
+    options:
+      output: '%f-sch-%r.%x'
+
+  - name: 'pcb_svg_f'
+    type: svg
+    dir: doc
+    options:
+      output: '%f-front-%r.%x'
+      mirror_plot: false
+    layers:
+      - 'Edge.Cuts'
+      - 'F.Cu'
+      - 'F.SilkS'
+      - 'F.Paste'
+      - 'F.Mask'
+
+  - name: 'pcb_svg_b'
+    type: svg
+    dir: doc
+    options:
+      output: '%f-back-%r.%x'
+      mirror_plot: true
+    layers:
+      - 'Edge.Cuts'
+      - 'B.Cu'
+      - 'B.SilkS'
+      - 'B.Paste'
+      - 'B.Mask'
+
+  - name: 'pcb_pdf_f'
+    type: pdf_pcb_print
+    dir: doc
+    options:
+      output: '%f-front-%r.%x'
+      mirror_plot: true
+    layers:
+      - 'Edge.Cuts'
+      - 'F.Cu'
+      - 'F.SilkS'
+      - 'F.Paste'
+      - 'F.Mask'
+
+  - name: 'pcb_pdf_b'
+    type: pdf_pcb_print
+    dir: doc
+    options:
+      output: '%f-back-%r.%x'
+      mirror_plot: true
+    layers:
+      - 'Edge.Cuts'
+      - 'B.Cu'
+      - 'B.SilkS'
+      - 'B.Paste'
+      - 'B.Mask'
+
+  - name: 'ibom'
+    type: ibom
+    dir: bom
+    options:
+      include_tracks: true
+
+  - name: 'step'
+    type: step
+    dir: 3d
+
+  - name: 'dxf'
+    type: dxf
+    dir: dxf
+    options:
+      use_aux_axis_as_origin: true
+      plot_footprint_values: false
+      plot_footprint_refs: false
+      metric_units: true
+      exclude_edge_layer: true
+      sketch_plot: true
+      drill_marks: 'none'
+      polygon_mode: false
+    layers:
+      - 'Edge.Cuts'
+      - 'Eco1.User'
+
+  - name: 'gerber-zip-file'
+    type: compress
+    options:
+      output: '%f-%r-%D-%T.%x'
+      format: 'ZIP'
+      files:
+        - from_output: 'gerbers'
+        - from_output: 'drills'
