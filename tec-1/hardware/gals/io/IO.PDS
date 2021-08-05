@@ -1,0 +1,37 @@
+;PALASM Design Description
+
+;---------------------------------- Declaration Segment ------------
+TITLE    TEC-1 IO PLD
+PATTERN  IO2.PDS
+REVISION 1
+AUTHOR   Tom Keddie
+COMPANY  Tom Keddie
+DATE     08/04/21
+
+CHIP  IO2  PAL22V10
+
+;---------------------------------- PIN Declarations ---------------
+PIN  7          A3                                               ; plcc pin 9
+PIN  8          A2                                               ; plcc pin 10
+PIN  9          A1                                               ; plcc pin 11
+PIN  10         A0                                               ; plcc pin 12
+PIN  13         IORQ_N                                           ; plcc pin 16
+PIN  14         LCD_E                                            ; plcc pin 17
+PIN  15         KEYBD_CS                                         ; plcc pin 18
+PIN  16         MATRIXCOL_R_N                                    ; plcc pin 19
+PIN  17         MATRIXCOL_G_N                                    ; plcc pin 20
+PIN  18         MATRIXROW_N                                      ; plcc pin 21
+PIN  19         SEG7ROW_CS_N                                     ; plcc pin 23
+PIN  20         SEG7COL_CS_N                                     ; plcc pin 24
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+
+KEYBD_CS            = /IORQ_N * /A3 * /A2 * /A1 * /A0;
+/SEG7COL_CS_N       = /IORQ_N * /A3 * /A2 * /A1 *  A0;
+/SEG7ROW_CS_N       = /IORQ_N * /A3 * /A2 *  A1 * /A0;
+LCD_E               = /IORQ_N * /A3 *  A2 * /A1 * /A0;
+/MATRIXCOL_R_N      = /IORQ_N * /A3 *  A2 * /A1 *  A0;
+/MATRIXCOL_G_N      = /IORQ_N * /A3 *  A2 *  A1 * /A0;
+/MATRIXROW_N        = /IORQ_N * /A3 *  A2 *  A1 *  A0;
+
