@@ -1,0 +1,52 @@
+;PALASM Design Description
+
+;---------------------------------- Declaration Segment ------------
+TITLE    TEC-1 IO PLD
+PATTERN  IO2.PDS
+REVISION 1
+AUTHOR   Tom Keddie
+COMPANY  Tom Keddie
+DATE     08/04/21
+
+CHIP  IO2  PAL22V10
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1      M1           COMBINATORIAL   ; plcc pin 2
+PIN  2      A15          COMBINATORIAL   ; plcc pin 3
+PIN  3      A14          COMBINATORIAL   ; plcc pin 4
+PIN  4      A13          COMBINATORIAL   ; plcc pin 5 
+PIN  5      A12          COMBINATORIAL   ; plcc pin 6
+PIN  6      A11          COMBINATORIAL   ; plcc pin 7
+PIN  11     MEMRQ_N      COMBINATORIAL   ; plcc pin 13
+PIN  14     FLASH_CS_N   COMBINATORIAL   ; plcc pin 17
+PIN  15     SRAMA_CS_N   COMBINATORIAL   ; plcc pin 18
+PIN  16     SRAMB_CS_N   COMBINATORIAL   ; plcc pin 19
+PIN  17     SRAMC_CS_N   COMBINATORIAL   ; plcc pin 20
+PIN  18     SRAMD_CS_N   COMBINATORIAL   ; plcc pin 21
+PIN  19     SRAME_CS_N   COMBINATORIAL   ; plcc pin 23
+PIN  20     SRAMF_CS_N   COMBINATORIAL   ; plcc pin 24
+PIN  21     SRAMG_CS_N   COMBINATORIAL   ; plcc pin 25
+PIN  22     INT_N        COMBINATORIAL   ; plcc pin 26
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+
+; [0000..07FF],[1800..1FFF]
+/FLASH_CS_N         = /MEMRQ_N * (/A15 * /A14 * /A13 * /A12 * /A11) +
+                      /MEMRQ_N * (/A15 * /A14 * /A13 *  A12 *  A11);
+; [0800..17FF],[2000..2FFF]
+/SRAMA_CS_N         = /MEMRQ_N * (/A15 * /A14 * /A13 * /A12 *  A11) +
+                      /MEMRQ_N * (/A15 * /A14 * /A13 *  A12 * /A11) +
+                      /MEMRQ_N * (/A15 * /A14 *  A13);
+; [4000..5FFF]
+/SRAMB_CS_N         = /MEMRQ_N * (/A15 *  A14 * /A13);
+; [6000..7FFF]
+/SRAMC_CS_N         = /MEMRQ_N * (/A15 *  A14 *  A13);
+; [8000..9FFF]
+/SRAMD_CS_N         = /MEMRQ_N * ( A15 * /A14 * /A13);
+; [A000..BFFF]
+/SRAME_CS_N         = /MEMRQ_N * ( A15 * /A14 *  A13);
+; [C000..DFFF]
+/SRAMF_CS_N         = /MEMRQ_N * ( A15 *  A14 * /A13);
+; [E000..FFFF]
+/SRAMG_CS_N         = /MEMRQ_N * ( A15 *  A14 *  A13);
