@@ -26,7 +26,7 @@ PIN  18     SRAMD_CS_N   COMBINATORIAL   ; plcc pin 21
 PIN  19     SRAME_CS_N   COMBINATORIAL   ; plcc pin 23
 PIN  20     SRAMF_CS_N   COMBINATORIAL   ; plcc pin 24
 PIN  21     SRAMG_CS_N   COMBINATORIAL   ; plcc pin 25
-PIN  22     INT_N        COMBINATORIAL   ; plcc pin 26
+PIN  22     INT_N        REGISTERED      ; plcc pin 26
 
 ;----------------------------------- Boolean Equation Segment ------
 EQUATIONS
@@ -50,3 +50,6 @@ EQUATIONS
 /SRAMF_CS_N         = /MEMRQ_N * ( A15 *  A14 * /A13);
 ; [E000..FFFF]
 /SRAMG_CS_N         = /MEMRQ_N * ( A15 *  A14 *  A13);
+
+INT_N.CLKF = M1
+/INT_N = FLASH_CS_N
