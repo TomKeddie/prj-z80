@@ -1,0 +1,54 @@
+;PALASM Design Description
+
+;---------------------------------- Declaration Segment ------------
+TITLE    TEC-1 IO PLD
+PATTERN  MEMORY.PDS
+REVISION 1
+AUTHOR   Tom Keddie
+COMPANY  Tom Keddie
+DATE     08/04/21
+
+CHIP  IO2  PAL22V10
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1      CLK_IN                       ; plcc pin 2
+
+PIN  7      DIV[2]       COMBINATORIAL   ; plcc pin 9
+PIN  8      DIV[1]       COMBINATORIAL   ; plcc pin 10
+PIN  9      DIV[0]       COMBINATORIAL   ; plcc pin 11
+
+PIN 14      BIT[0]     REGISTERED      ; plcc pin 17
+PIN 15      BIT[1]     REGISTERED      ; plcc pin 18
+
+PIN 19      CLKOUT       COMBINATORIAL   ; plcc pin 23
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+
+STATE
+MEALY_MACHINE
+
+START_UP := POWER_UP -> ZERO
+CLKF = CLK_IN
+DEFAULT_BRANCH ZERO
+
+ZERO := ALWAYS -> ONE
+ONE := DIV2 -> ZERO + DIV4 -> TWO
+TWO := ALWAYS -> THREE
+THREE := ALWAYS -> ZERO
+
+ZERO = /BIT[1] * /BIT[0]
+ONE  = /BIT[1] * BIT[0]
+TWO  = BIT[1] * /BIT[0]
+THREE = BIT[1] * BIT[0]
+
+ZERO.OUTF := CLKOUT
+ONE.OUTF := DIV2 -> /CLKOUT + DIV4 -> CLKOUT
+TWO.OUTF := /CLKOUT
+THREE.OUTF := /CLKOUT
+
+CONDITIONS
+DIV2 = /DIV[2] * /DIV[1] * /DIV[0]
+DIV4 = /DIV[2] * /DIV[1] *  DIV[0]
+ALWAYS = VCC
+
