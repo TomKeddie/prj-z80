@@ -1,0 +1,3 @@
+[submodule "tec-1/hardware/gals/GALasm"]
+	path = tec-1/hardware/gals/GALasm
+	url = git@github.com:daveho/GALasm.git
