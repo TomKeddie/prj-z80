@@ -1,0 +1,140 @@
+;PALASM Design Description
+
+;---------------------------------- Declaration Segment ------------
+TITLE    TEC-1 IO PLD
+PATTERN  MEMORY.PDS
+REVISION 1
+AUTHOR   Tom Keddie
+COMPANY  Tom Keddie
+DATE     08/04/21
+
+CHIP  IO2  PAL22V10
+
+;---------------------------------- PIN Declarations ---------------
+NODE 1      GLOBAL                       ; 
+PIN  1      CLK_IN       COMBINATORIAL   ; plcc pin 2
+
+PIN  7      DIV[2]       COMBINATORIAL   ; plcc pin 9
+PIN  8      DIV[1]       COMBINATORIAL   ; plcc pin 10
+PIN  9      DIV[0]       COMBINATORIAL   ; plcc pin 11
+
+PIN 14      COUNT[0]     REGISTERED      ; plcc pin 17
+PIN 15      COUNT[1]     REGISTERED      ; plcc pin 18
+PIN 16      COUNT[2]     REGISTERED      ; plcc pin 19
+PIN 17      COUNT[3]     REGISTERED      ; plcc pin 20
+PIN 18      COUNT[4]     REGISTERED      ; plcc pin 21
+PIN 19      CLKOUT       COMBINATORIAL   ; plcc pin 23
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+
+COUNT[4..0].CLKF = CLK_IN;
+GLOBAL.RSTF = GND;
+GLOBAL.SETF = GND;
+CASE(COUNT[4..0])
+BEGIN
+0:
+    BEGIN
+        COUNT[4..0] := #d1;
+        CLKOUT := 1;
+    END
+1:
+    BEGIN
+        IF DIV[2..0] = #d0 THEN
+            BEGIN
+                ; 16/2 = 8MHz
+                COUNT[4..0] := #d0;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d2;
+                CLKOUT = 1;
+            END
+    END
+2:
+    BEGIN
+        IF DIV[2..0] = #d1 THEN
+            BEGIN
+                COUNT[4..0] := #d3;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d3;
+                CLKOUT = 1;
+            END
+    END
+3:
+    BEGIN
+        IF DIV[2..0] = #d1 THEN
+            BEGIN
+                ; 16/4 = 4MHz
+                COUNT[4..0] := #d0;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d4;
+                CLKOUT = 1;
+            END
+    END
+4:
+    BEGIN
+        IF DIV[2..0] = #d2 THEN
+            BEGIN
+                COUNT[4..0] := #d5;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d5;
+                CLKOUT = 1;
+            END
+    END
+5:
+    BEGIN
+        IF DIV[2..0] = #d2 THEN
+            BEGIN
+                COUNT[4..0] := #d6;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d6;
+                CLKOUT = 1;
+            END
+    END
+6:
+    BEGIN
+        IF DIV[2..0] = #d2 THEN
+            BEGIN
+                COUNT[4..0] := #d7;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d7;
+                CLKOUT = 1;
+            END
+    END
+7:
+    BEGIN
+        IF DIV[2..0] = #d2 THEN
+            BEGIN
+                ; 16/8 = 2MHz
+                COUNT[4..0] := #d0;
+                CLKOUT = 0;
+            END
+        ELSE
+            BEGIN
+                COUNT[4..0] := #d8;
+                CLKOUT = 1;
+            END
+    END
+
+OTHERWISE:
+    BEGIN
+        COUNT[4..0] := #d0;
+    END
+END

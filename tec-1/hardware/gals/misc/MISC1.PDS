@@ -17,8 +17,10 @@ PIN  7      DIV[2]       COMBINATORIAL   ; plcc pin 9
 PIN  8      DIV[1]       COMBINATORIAL   ; plcc pin 10
 PIN  9      DIV[0]       COMBINATORIAL   ; plcc pin 11
 
-PIN 14      BIT[0]     REGISTERED      ; plcc pin 17
-PIN 15      BIT[1]     REGISTERED      ; plcc pin 18
+PIN 14      BIT[0]       REGISTERED      ; plcc pin 17
+PIN 15      BIT[1]       REGISTERED      ; plcc pin 18
+PIN 16      BIT[2]       REGISTERED      ; plcc pin 19
+PIN 17      BIT[3]       REGISTERED      ; plcc pin 19
 
 PIN 19      CLKOUT       COMBINATORIAL   ; plcc pin 23
 
@@ -32,23 +34,61 @@ START_UP := POWER_UP -> ZERO
 CLKF = CLK_IN
 DEFAULT_BRANCH ZERO
 
-ZERO := ALWAYS -> ONE
-ONE := DIV2 -> ZERO + DIV4 -> TWO
-TWO := ALWAYS -> THREE
-THREE := ALWAYS -> ZERO
+ZERO     := ALWAYS -> ONE
+ONE      := DIV2   -> ZERO + DIV4  -> TWO  + DIV8  -> TWO + DIV16 -> TWO
+TWO      := ALWAYS -> THREE
+THREE    := DIV4   -> ZERO + DIV8  -> FOUR + DIV16 -> FOUR
+FOUR     := ALWAYS -> FIVE
+FIVE     := ALWAYS -> SIX
+SIX      := ALWAYS -> SEVEN
+SEVEN    := DIV8   -> ZERO + DIV16 -> EIGHT
+EIGHT    := ALWAYS -> NINE
+NINE     := ALWAYS -> TEN      
+TEN      := ALWAYS -> ELEVEN
+ELEVEN   := ALWAYS -> TWELVE
+TWELVE   := ALWAYS -> THIRTEEN
+THIRTEEN := ALWAYS -> FOURTEEN
+FOURTEEN := ALWAYS -> FIFTEEN
+FIFTEEN  := ALWAYS -> ZERO
 
-ZERO = /BIT[1] * /BIT[0]
-ONE  = /BIT[1] * BIT[0]
-TWO  = BIT[1] * /BIT[0]
-THREE = BIT[1] * BIT[0]
-
-ZERO.OUTF := CLKOUT
-ONE.OUTF := DIV2 -> /CLKOUT + DIV4 -> CLKOUT
-TWO.OUTF := /CLKOUT
-THREE.OUTF := /CLKOUT
+ZERO     = /BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
+ONE      = /BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
+TWO      = /BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
+THREE    = /BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
+FOUR     = /BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
+FIVE     = /BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
+SIX      = /BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
+SEVEN    = /BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
+EIGHT    =  BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
+NINE     =  BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
+TEN      =  BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
+ELEVEN   =  BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
+TWELVE   =  BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
+THIRTEEN =  BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
+FOURTEEN =  BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
+FIFTEEN  =  BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
+ 
+ZERO.OUTF     := CLKOUT
+ONE.OUTF      := DIV2  -> /CLKOUT + DIV4  -> CLKOUT + DIV8  -> CLKOUT + DIV16 -> CLKOUT
+TWO.OUTF      := DIV4  -> /CLKOUT                   + DIV8  -> CLKOUT + DIV16 -> CLKOUT
+THREE.OUTF    := DIV4  -> /CLKOUT                   + DIV8  -> CLKOUT + DIV16 -> CLKOUT
+FOUR.OUTF     := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
+FIVE.OUTF     := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
+SIX.OUTF      := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
+SEVEN.OUTF    := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
+EIGHT.OUTF    := /CLKOUT
+NINE.OUTF     := /CLKOUT
+TEN.OUTF      := /CLKOUT
+ELEVEN.OUTF   := /CLKOUT
+TWELVE.OUTF   := /CLKOUT
+THIRTEEN.OUTF := /CLKOUT
+FOURTEEN.OUTF := /CLKOUT
+FIFTEEN.OUTF  := /CLKOUT
 
 CONDITIONS
-DIV2 = /DIV[2] * /DIV[1] * /DIV[0]
-DIV4 = /DIV[2] * /DIV[1] *  DIV[0]
 ALWAYS = VCC
+DIV2  = /DIV[2] * /DIV[1] * /DIV[0]
+DIV4  = /DIV[2] * /DIV[1] *  DIV[0]
+DIV8  = /DIV[2] *  DIV[1] * /DIV[0]
+DIV16 = /DIV[2] *  DIV[1] *  DIV[0]
 
