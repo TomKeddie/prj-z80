@@ -13,15 +13,15 @@ CHIP  IO2  PAL22V10
 ;---------------------------------- PIN Declarations ---------------
 PIN  1      CLK_IN                       ; plcc pin 2
 
-PIN  7      DIV[2]       COMBINATORIAL   ; plcc pin 9
+PIN  7      DIV[0]       COMBINATORIAL   ; plcc pin 9
 PIN  8      DIV[1]       COMBINATORIAL   ; plcc pin 10
-PIN  9      DIV[0]       COMBINATORIAL   ; plcc pin 11
+PIN  9      DIV[2]       COMBINATORIAL   ; plcc pin 11
 
 PIN 14      BIT[0]       REGISTERED      ; plcc pin 17
 PIN 15      BIT[1]       REGISTERED      ; plcc pin 18
 PIN 16      BIT[2]       REGISTERED      ; plcc pin 19
-PIN 17      BIT[3]       REGISTERED      ; plcc pin 19
-
+PIN 17      BIT[3]       REGISTERED      ; plcc pin 20
+PIN 18      BIT[4]       REGISTERED      ; plcc pin 21
 PIN 19      CLKOUT       COMBINATORIAL   ; plcc pin 23
 
 ;----------------------------------- Boolean Equation Segment ------
@@ -34,56 +34,104 @@ START_UP := POWER_UP -> ZERO
 CLKF = CLK_IN
 DEFAULT_BRANCH ZERO
 
-ZERO     := ALWAYS -> ONE
-ONE      := DIV2   -> ZERO + DIV4  -> TWO  + DIV8  -> TWO + DIV16 -> TWO
-TWO      := ALWAYS -> THREE
-THREE    := DIV4   -> ZERO + DIV8  -> FOUR + DIV16 -> FOUR
-FOUR     := ALWAYS -> FIVE
-FIVE     := ALWAYS -> SIX
-SIX      := ALWAYS -> SEVEN
-SEVEN    := DIV8   -> ZERO + DIV16 -> EIGHT
-EIGHT    := ALWAYS -> NINE
-NINE     := ALWAYS -> TEN      
-TEN      := ALWAYS -> ELEVEN
-ELEVEN   := ALWAYS -> TWELVE
-TWELVE   := ALWAYS -> THIRTEEN
-THIRTEEN := ALWAYS -> FOURTEEN
-FOURTEEN := ALWAYS -> FIFTEEN
-FIFTEEN  := ALWAYS -> ZERO
+ZERO        := ALWAYS -> ONE
+ONE         := DIV2   -> ZERO + DIV4  -> TWO  + DIV8  -> TWO  + DIV16 -> TWO   + DIV32 -> TWO
+TWO         := ALWAYS -> THREE
+THREE       := DIV2   -> ZERO + DIV4  -> ZERO + DIV8  -> FOUR + DIV16 -> FOUR  + DIV32 -> FOUR
+FOUR        := ALWAYS -> FIVE
+FIVE        := ALWAYS -> SIX
+SIX         := ALWAYS -> SEVEN
+SEVEN       := DIV2   -> ZERO + DIV4  -> ZERO + DIV8  -> ZERO + DIV16 -> EIGHT + DIV32 -> EIGHT
+EIGHT       := ALWAYS -> NINE
+NINE        := ALWAYS -> TEN      
+TEN         := ALWAYS -> ELEVEN
+ELEVEN      := ALWAYS -> TWELVE
+TWELVE      := ALWAYS -> THIRTEEN
+THIRTEEN    := ALWAYS -> FOURTEEN
+FOURTEEN    := ALWAYS -> FIFTEEN
+FIFTEEN     := DIV2   -> ZERO + DIV4  -> ZERO + DIV8  -> ZERO + DIV16 -> ZERO  + DIV32 -> SIXTEEN
+SIXTEEN     := ALWAYS -> SEVENTEEN   
+SEVENTEEN   := ALWAYS -> EIGHTEEN    
+EIGHTEEN    := ALWAYS -> NINETEEN    
+NINETEEN    := ALWAYS -> TWENTYZERO  
+TWENTYZERO  := ALWAYS -> TWENTYONE   
+TWENTYONE   := ALWAYS -> TWENTYTWO   
+TWENTYTWO   := ALWAYS -> TWENTYTHREE
+TWENTYTHREE := ALWAYS -> TWENTYFOUR  
+TWENTYFOUR  := ALWAYS -> TWENTYFIVE  
+TWENTYFIVE  := ALWAYS -> TWENTYSIX   
+TWENTYSIX   := ALWAYS -> TWENTYSEVEN 
+TWENTYSEVEN := ALWAYS -> TWENTYEIGHT 
+TWENTYEIGHT := ALWAYS -> TWENTYNINE  
+TWENTYNINE  := ALWAYS -> THIRTY      
+THIRTY      := ALWAYS -> THIRTYONE
+THIRTYONE   := ALWAYS -> ZERO
 
-ZERO     = /BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
-ONE      = /BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
-TWO      = /BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
-THREE    = /BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
-FOUR     = /BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
-FIVE     = /BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
-SIX      = /BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
-SEVEN    = /BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
-EIGHT    =  BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
-NINE     =  BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
-TEN      =  BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
-ELEVEN   =  BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
-TWELVE   =  BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
-THIRTEEN =  BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
-FOURTEEN =  BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
-FIFTEEN  =  BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
+ZERO        = /BIT[4] * /BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
+ONE         = /BIT[4] * /BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
+TWO         = /BIT[4] * /BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
+THREE       = /BIT[4] * /BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
+FOUR        = /BIT[4] * /BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
+FIVE        = /BIT[4] * /BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
+SIX         = /BIT[4] * /BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
+SEVEN       = /BIT[4] * /BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
+EIGHT       = /BIT[4] *  BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
+NINE        = /BIT[4] *  BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
+TEN         = /BIT[4] *  BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
+ELEVEN      = /BIT[4] *  BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
+TWELVE      = /BIT[4] *  BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
+THIRTEEN    = /BIT[4] *  BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
+FOURTEEN    = /BIT[4] *  BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
+FIFTEEN     = /BIT[4] *  BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
+SIXTEEN     =  BIT[4] * /BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
+SEVENTEEN   =  BIT[4] * /BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
+EIGHTEEN    =  BIT[4] * /BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
+NINETEEN    =  BIT[4] * /BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
+TWENTYZERO  =  BIT[4] * /BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
+TWENTYONE   =  BIT[4] * /BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
+TWENTYTWO   =  BIT[4] * /BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
+TWENTYTHREE =  BIT[4] * /BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
+TWENTYFOUR  =  BIT[4] *  BIT[3] * /BIT[2] * /BIT[1] * /BIT[0]
+TWENTYFIVE  =  BIT[4] *  BIT[3] * /BIT[2] * /BIT[1] *  BIT[0]
+TWENTYSIX   =  BIT[4] *  BIT[3] * /BIT[2] *  BIT[1] * /BIT[0]
+TWENTYSEVEN =  BIT[4] *  BIT[3] * /BIT[2] *  BIT[1] *  BIT[0]
+TWENTYEIGHT =  BIT[4] *  BIT[3] *  BIT[2] * /BIT[1] * /BIT[0]
+TWENTYNINE  =  BIT[4] *  BIT[3] *  BIT[2] * /BIT[1] *  BIT[0]
+THIRTY      =  BIT[4] *  BIT[3] *  BIT[2] *  BIT[1] * /BIT[0]
+THIRTYONE   =  BIT[4] *  BIT[3] *  BIT[2] *  BIT[1] *  BIT[0]
  
-ZERO.OUTF     := CLKOUT
-ONE.OUTF      := DIV2  -> /CLKOUT + DIV4  -> CLKOUT + DIV8  -> CLKOUT + DIV16 -> CLKOUT
-TWO.OUTF      := DIV4  -> /CLKOUT                   + DIV8  -> CLKOUT + DIV16 -> CLKOUT
-THREE.OUTF    := DIV4  -> /CLKOUT                   + DIV8  -> CLKOUT + DIV16 -> CLKOUT
-FOUR.OUTF     := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
-FIVE.OUTF     := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
-SIX.OUTF      := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
-SEVEN.OUTF    := DIV8  -> /CLKOUT                                     + DIV16 -> CLKOUT
-EIGHT.OUTF    := /CLKOUT
-NINE.OUTF     := /CLKOUT
-TEN.OUTF      := /CLKOUT
-ELEVEN.OUTF   := /CLKOUT
-TWELVE.OUTF   := /CLKOUT
-THIRTEEN.OUTF := /CLKOUT
-FOURTEEN.OUTF := /CLKOUT
-FIFTEEN.OUTF  := /CLKOUT
+ZERO.OUTF        := DIV2  ->  CLKOUT + DIV4  ->  CLKOUT + DIV8  ->  CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+ONE.OUTF         := DIV2  -> /CLKOUT + DIV4  ->  CLKOUT + DIV8  ->  CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+TWO.OUTF         := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  ->  CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+THREE.OUTF       := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  ->  CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+FOUR.OUTF        := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+FIVE.OUTF        := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+SIX.OUTF         := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+SEVEN.OUTF       := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 ->  CLKOUT + DIV32 ->  CLKOUT
+EIGHT.OUTF       := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+NINE.OUTF        := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+TEN.OUTF         := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+ELEVEN.OUTF      := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+TWELVE.OUTF      := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+THIRTEEN.OUTF    := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+FOURTEEN.OUTF    := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+FIFTEEN.OUTF     := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 ->  CLKOUT
+SIXTEEN.OUTF     := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+SEVENTEEN .OUTF  := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+EIGHTEEN.OUTF    := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+NINETEEN.OUTF    := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYZERO.OUTF  := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYONE.OUTF   := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYTWO.OUTF   := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYTHREE.OUTF := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYFOUR.OUTF  := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYFIVE.OUTF  := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYSIX.OUTF   := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYSEVEN.OUTF := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYEIGHT.OUTF := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+TWENTYNINE.OUTF  := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+THIRTY.OUTF      := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
+THIRTYONE.OUTF   := DIV2  -> /CLKOUT + DIV4  -> /CLKOUT + DIV8  -> /CLKOUT + DIV16 -> /CLKOUT + DIV32 -> /CLKOUT
 
 CONDITIONS
 ALWAYS = VCC
@@ -91,4 +139,5 @@ DIV2  = /DIV[2] * /DIV[1] * /DIV[0]
 DIV4  = /DIV[2] * /DIV[1] *  DIV[0]
 DIV8  = /DIV[2] *  DIV[1] * /DIV[0]
 DIV16 = /DIV[2] *  DIV[1] *  DIV[0]
+DIV32 =  DIV[2]
 
