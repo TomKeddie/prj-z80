@@ -25,7 +25,7 @@ PIN  10     FTDI_D6      COMBINATORIAL   ; plcc pin 12
 PIN  11     FTDI_D7      COMBINATORIAL   ; plcc pin 13
 
 PIN  13     KEYBD_CS     COMBINATORIAL   ; plcc pin 16
-PIN  14     D_TRST       COMBINATORIAL   ; plcc pin 17 (NC)
+PIN  14     FTDI_SHIFT   REGISTERED      ; plcc pin 17 (NC)
 PIN  15     C923_OE_N    COMBINATORIAL   ; plcc pin 18
 PIN  16     NMI_N        COMBINATORIAL   ; plcc pin 19
 PIN  17     D0           REGISTERED      ; plcc pin 20
@@ -34,41 +34,42 @@ PIN  19     D2           REGISTERED      ; plcc pin 23
 PIN  20     D3           REGISTERED      ; plcc pin 24
 PIN  21     D4           REGISTERED      ; plcc pin 25
 PIN  22     D5           COMBINATORIAL   ; plcc pin 26
-PIN  23     FTDI_SHIFT   REGISTERED      ; plcc pin 27 (NC)
+PIN  23     D6           REGISTERED      ; plcc pin 27 (NC)
 
 ;----------------------------------- Boolean Equation Segment ------
 EQUATIONS
 
-D0 := FTDI_D0
-D1 := FTDI_D1
-D2 := FTDI_D2
-D3 := FTDI_D3
-D4 := FTDI_D4
-FTDI_SHIFT := FTDI_D5;
+D0         := FTDI_D0
+D1         := FTDI_D1
+D2         := FTDI_D2
+D3         := FTDI_D3
+D4         := FTDI_D4
+FTDI_SHIFT := FTDI_D5
+D6         := FTDI_D6
 
-D0.CLKF         = FTDI_WR;
-D1.CLKF         = FTDI_WR;
-D2.CLKF         = FTDI_WR;
-D3.CLKF         = FTDI_WR;
-D4.CLKF         = FTDI_WR;
-FTDI_SHIFT.CLKF = FTDI_WR;
-
-; tristate internal reg when D6 is off or CS is inactive
-D_TRST = /FTDI_D6 + /KEYBD_CS
+D0.CLKF         = FTDI_WR
+D1.CLKF         = FTDI_WR
+D2.CLKF         = FTDI_WR
+D3.CLKF         = FTDI_WR
+D4.CLKF         = FTDI_WR
+FTDI_SHIFT.CLKF = FTDI_WR
+D6.CLKF         = FTDI_WR
 
 ; tristate is active low
-D0.TRST = /D_TRST;
-D1.TRST = /D_TRST;
-D2.TRST = /D_TRST;
-D3.TRST = /D_TRST;
-D4.TRST = /D_TRST;
+D0.TRST = KEYBD_CS
+D1.TRST = KEYBD_CS
+D2.TRST = KEYBD_CS
+D3.TRST = KEYBD_CS
+D4.TRST = KEYBD_CS
 D5.TRST = KEYBD_CS
+D6.TRST = GND
 
-; enable tristate keybd encoder chip outpue when D6 is off and CS is active
-/C923_OE_N = /FTDI_D6 * KEYBD_CS
+; enable tristate keybd encoder chip output when D6 is off and CS is active
+C923_OE_N = VCC ; /FTDI_D6 * KEYBD_CS
 
 ; D5 pulled low when shift is pressed or ftdi shift is on
-/D5 = FTDI_SHIFT + /SHIFTKEY_N
+D5 = FTDI_SHIFT ; * SHIFTKEY_N
 
 ; signal a keypress if the 74C923 signals and the encoder is enabled
-/NMI_N = C923_DA * /FTDI_D6 + FTDI_D7
+; NMI_N = D6
+NMI_N = /D6
