@@ -56,19 +56,19 @@ FTDI_SHIFT.CLKF = FTDI_WR
 D6.CLKF         = FTDI_WR
 
 ; tristate is active low
-D0.TRST = KEYBD_CS
-D1.TRST = KEYBD_CS
-D2.TRST = KEYBD_CS
-D3.TRST = KEYBD_CS
-D4.TRST = KEYBD_CS
-D5.TRST = KEYBD_CS
-D6.TRST = GND
+/D0.TRST = KEYBD_CS * D6
+/D1.TRST = KEYBD_CS * D6
+/D2.TRST = KEYBD_CS * D6
+/D3.TRST = KEYBD_CS * D6
+/D4.TRST = KEYBD_CS * D6
+/D5.TRST = KEYBD_CS * D6
+/D6.TRST = VCC
 
 ; enable tristate keybd encoder chip output when D6 is off and CS is active
-C923_OE_N = VCC ; /FTDI_D6 * KEYBD_CS
+/C923_OE_N = KEYBD_CS * /D6
 
 ; D5 pulled low when shift is pressed or ftdi shift is on
 D5 = FTDI_SHIFT ; * SHIFTKEY_N
 
 ; signal a keypress if the 74C923 signals and the encoder is enabled
-/NMI_N = D6 * FTDI_D7
+/NMI_N = D6 * FTDI_D7 + /D6 * C923_DA
