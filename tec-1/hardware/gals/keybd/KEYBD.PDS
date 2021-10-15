@@ -71,5 +71,4 @@ C923_OE_N = VCC ; /FTDI_D6 * KEYBD_CS
 D5 = FTDI_SHIFT ; * SHIFTKEY_N
 
 ; signal a keypress if the 74C923 signals and the encoder is enabled
-; NMI_N = D6
-NMI_N = /D6
+/NMI_N = D6 * FTDI_D7
